@@ -1,0 +1,28 @@
+# D6.2 - sentinel='SENTINEL-1780266279-a8f3cf8af51a'
+# timestamp_utc: 2026-05-31T22:24:39Z
+# payload sent (sentinel-injected): {"messages": [{"role": "user", "content": "SENTINEL-1780266279-a8f3cf8af51a"}]}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:24:39Z
+# method: POST
+# url: http://127.0.0.1:5000/v1/chat/completions
+# headers: Content-Type: application/json
+# data_len: 79
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 500 Internal Server Error
+date: Sun, 31 May 2026 22:24:39 GMT
+server: uvicorn
+content-length: 21
+content-type: text/plain; charset=utf-8
+
+Internal Server Error
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /var/log /tmp /app /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=0
+(sentinel not found in searched roots or in files modified during the call)

@@ -1,0 +1,46 @@
+# D5.2 - REAL path-traversal probe
+# timestamp_utc: 2026-05-31T22:29:30Z
+# framework: sglang  kind: post_body  port: 30000
+# leak validation regex: root:.*:0:0:
+
+### payload: ../../../../etc/passwd
+HTTP/1.1 400 Bad Request
+date: Sun, 31 May 2026 22:29:29 GMT
+server: uvicorn
+content-length: 495
+content-type: application/json
+
+{"object":"error","message":"1 validation error:\n  {'type': 'json_invalid', 'loc': ('body', 39), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}\n\n  File \"/sgl-workspace/sglang/python/sglang/srt/entrypoints/http_server.py\", line 1039, in update_weights_from_disk\n    POST /update_weights_from_disk [{'type': 'json_invalid', 'loc': ('body', 39), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}]","type":"Bad Request","param":null,"code":400}
+
+
+### payload: ..%2f..%2f..%2f..%2fetc%2fpasswd
+HTTP/1.1 400 Bad Request
+date: Sun, 31 May 2026 22:29:29 GMT
+server: uvicorn
+content-length: 495
+content-type: application/json
+
+{"object":"error","message":"1 validation error:\n  {'type': 'json_invalid', 'loc': ('body', 49), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}\n\n  File \"/sgl-workspace/sglang/python/sglang/srt/entrypoints/http_server.py\", line 1039, in update_weights_from_disk\n    POST /update_weights_from_disk [{'type': 'json_invalid', 'loc': ('body', 49), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}]","type":"Bad Request","param":null,"code":400}
+
+
+### payload: ....//....//....//etc/passwd
+HTTP/1.1 400 Bad Request
+date: Sun, 31 May 2026 22:29:29 GMT
+server: uvicorn
+content-length: 495
+content-type: application/json
+
+{"object":"error","message":"1 validation error:\n  {'type': 'json_invalid', 'loc': ('body', 45), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}\n\n  File \"/sgl-workspace/sglang/python/sglang/srt/entrypoints/http_server.py\", line 1039, in update_weights_from_disk\n    POST /update_weights_from_disk [{'type': 'json_invalid', 'loc': ('body', 45), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}]","type":"Bad Request","param":null,"code":400}
+
+
+### payload: /etc/passwd
+HTTP/1.1 400 Bad Request
+date: Sun, 31 May 2026 22:29:29 GMT
+server: uvicorn
+content-length: 495
+content-type: application/json
+
+{"object":"error","message":"1 validation error:\n  {'type': 'json_invalid', 'loc': ('body', 28), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}\n\n  File \"/sgl-workspace/sglang/python/sglang/srt/entrypoints/http_server.py\", line 1039, in update_weights_from_disk\n    POST /update_weights_from_disk [{'type': 'json_invalid', 'loc': ('body', 28), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}]","type":"Bad Request","param":null,"code":400}
+
+
+# RESULT: TRAVERSAL_ATTEMPTED_NO_LEAK (scorer -> SECURE: rejected/sanitized)

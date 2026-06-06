@@ -1,0 +1,27 @@
+# D6.2 - sentinel='SENTINEL-1780265777-82be247064d0'
+# timestamp_utc: 2026-05-31T22:16:17Z
+# payload sent (sentinel-injected): {"model": "tinyllama", "prompt": "SENTINEL-1780265777-82be247064d0", "stream": false}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:16:17Z
+# method: POST
+# url: http://127.0.0.1:11434/api/generate
+# headers: Content-Type: application/json
+# data_len: 85
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Sun, 31 May 2026 22:16:22 GMT
+Content-Length: 1491
+
+{"model":"tinyllama","created_at":"2026-05-31T22:16:22.336910671Z","response":"Certainly! Here's an example of a text that incorporates SENTINEL into the sentence:\n\n\"Without fail, I will be there for you. Let me remind you of our bond, our love and our commitment to each other.\" - SENTINEL\n\nIn this example, \"SENTINEL\" is being used as a noun and is capitalized, while the phrase \"within our bond, our love, our commitment\" is a complete sentence.","done":true,"done_reason":"stop","context":[529,29989,5205,29989,29958,13,3492,526,263,8444,319,29902,20255,29889,2,29871,13,29966,29989,1792,29989,29958,13,1660,20321,8895,29931,29899,29896,29955,29947,29900,29906,29953,29945,29955,29955,29955,29899,29947,29906,915,29906,29946,29955,29900,29953,29946,29881,29900,2,29871,13,29966,29989,465,22137,29989,29958,13,20455,475,368,29991,2266,29915,29879,385,1342,310,263,1426,393,11039,1078,3725,20321,8895,29931,964,278,10541,29901,13,13,29908,3047,449,4418,29892,306,674,367,727,363,366,29889,2803,592,1083,513,366,310,1749,21224,29892,1749,5360,322,1749,9063,358,304,1269,916,1213,448,3725,20321,8895,29931,13,13,797,445,1342,29892,376,1660,20321,8895,29931,29908,338,1641,1304,408,263,28313,29876,322,338,7483,1891,29892,1550,278,16549,376,2541,262,1749,21224,29892,1749,5360,29892,1749,9063,358,29908,338,263,4866,10541,29889],"total_duration":5239450379,"load_duration":18356139,"prompt_eval_count":61,"prompt_eval_duration":141690155,"eval_count":107,"eval_duration":5050647454}
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /root/.ollama /var/log /tmp /root/.ollama /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=0
+(sentinel not found in searched roots or in files modified during the call)

@@ -1,0 +1,39 @@
+# D6.2 - sentinel='SENTINEL-1780266756-82307d1f184b'
+# timestamp_utc: 2026-05-31T22:32:36Z
+# payload sent (sentinel-injected): {"inputs": "SENTINEL-1780266756-82307d1f184b", "parameters": {"max_new_tokens": 4}}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:32:37Z
+# method: POST
+# url: http://127.0.0.1:8080/generate
+# headers: Content-Type: application/json
+# data_len: 83
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+content-type: application/json
+x-compute-type: gpu+optimized
+x-compute-time: 0.143906903
+x-compute-characters: 32
+x-total-time: 143
+x-validation-time: 0
+x-queue-time: 0
+x-inference-time: 143
+x-time-per-token: 35
+x-prompt-tokens: 17
+x-generated-tokens: 4
+vary: origin, access-control-request-method, access-control-request-headers
+access-control-allow-origin: *
+content-length: 26
+date: Sun, 31 May 2026 22:32:36 GMT
+
+{"generated_text":"0c0\n"}
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /data /var/log /tmp /root/.cache /data /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=0
+(sentinel not found in searched roots or in files modified during the call)

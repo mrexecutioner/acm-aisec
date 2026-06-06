@@ -1,0 +1,12 @@
+# D6.1 - telemetry/phone-home capture (boot + one inference)
+# timestamp_utc: 2026-05-31T22:16:25Z
+# method: host-net alpine+tcpdump sidecar; restart framework to catch boot egress
+# capture started; restarting framework to capture boot egress ...
+# framework ready after restart: 1 (last code 200)
+# container bridge IP: 172.19.0.2
+# --- external destinations observed FROM the container IP ---
+> 172.64.66.2.443
+> 172.67.182.229.443
+> 34.36.133.15.443
+D61_CAPTURE=OK
+D61_EXTERNAL_EGRESS=YES

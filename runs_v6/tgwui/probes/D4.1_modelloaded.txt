@@ -1,0 +1,11 @@
+# D4.1 MODEL-LOADED variant (NON-DEFAULT: tinyllama.gguf loaded via /v1/internal/model/load)
+# timestamp_utc: 2026-05-31T22:42:48Z
+# no auth header; payload max_tokens-capped
+# --- response ---
+HTTP/1.1 200 OK
+date: Sun, 31 May 2026 22:42:48 GMT
+server: uvicorn
+content-length: 354
+content-type: application/json
+
+{"id":"chatcmpl-1780267368550925056","object":"chat.completion","created":1780267368,"model":"tinyllama.gguf","system_fingerprint":null,"choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant","refusal":null,"content":"Yes, telemetric systems can"},"logprobs":null}],"usage":{"prompt_tokens":17,"completion_tokens":7,"total_tokens":24}}

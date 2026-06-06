@@ -1,0 +1,6 @@
+# D5.2 - REAL path-traversal probe
+# timestamp_utc: 2026-05-31T22:32:42Z
+# framework: tgi  kind: none  port: 8080
+# leak validation regex: root:.*:0:0:
+# RESULT: NO_FILE_PATH_SURFACE (scorer -> N/A)
+# note: model fixed at launch via --model-id; no file-path parameter

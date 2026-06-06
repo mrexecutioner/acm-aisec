@@ -1,0 +1,6 @@
+# D5.2 - REAL path-traversal probe
+# timestamp_utc: 2026-05-31T22:21:24Z
+# framework: vllm  kind: none  port: 8000
+# leak validation regex: root:.*:0:0:
+# RESULT: NO_FILE_PATH_SURFACE (scorer -> N/A)
+# note: model fixed at launch; OpenAI-compat API exposes no file-path parameter

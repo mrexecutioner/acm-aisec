@@ -1,0 +1,29 @@
+# D6.2 - sentinel='SENTINEL-1780266142-0146d610df34'
+# timestamp_utc: 2026-05-31T22:22:23Z
+# payload sent (sentinel-injected): {"prompt": "SENTINEL-1780266142-0146d610df34", "n_predict": 4}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:22:23Z
+# method: POST
+# url: http://127.0.0.1:8080/completion
+# headers: Content-Type: application/json
+# data_len: 62
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Keep-Alive: timeout=5, max=100
+Content-Type: application/json; charset=utf-8
+Server: llama.cpp
+Content-Length: 1626
+Access-Control-Allow-Origin: 
+
+{"index":0,"content":"5beb8","tokens":[],"id_slot":2,"stop":true,"model":"model.gguf","tokens_predicted":4,"tokens_evaluated":28,"generation_settings":{"seed":4294967295,"temperature":0.800000011920929,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"top_k":40,"top_p":0.949999988079071,"min_p":0.05000000074505806,"top_n_sigma":-1.0,"xtc_probability":0.0,"xtc_threshold":0.10000000149011612,"typical_p":1.0,"repeat_last_n":64,"repeat_penalty":1.0,"presence_penalty":0.0,"frequency_penalty":0.0,"dry_multiplier":0.0,"dry_base":1.75,"dry_allowed_length":2,"dry_penalty_last_n":2048,"dry_sequence_breakers":["\n",":","\"","*"],"mirostat":0,"mirostat_tau":5.0,"mirostat_eta":0.10000000149011612,"stop":[],"max_tokens":4,"n_predict":4,"n_keep":0,"n_discard":0,"ignore_eos":false,"stream":false,"logit_bias":[],"n_probs":0,"min_keep":0,"grammar":"","grammar_lazy":false,"grammar_triggers":[],"preserved_tokens":[],"chat_format":"Content-only","reasoning_format":"deepseek","reasoning_in_content":false,"generation_prompt":"","samplers":["penalties","dry","top_n_sigma","top_k","typ_p","top_p","min_p","xtc","temperature"],"speculative.types":"none","timings_per_token":false,"post_sampling_probs":false,"backend_sampling":false,"lora":[]},"prompt":"<s> SENTINEL-1780266142-0146d610df34","has_new_line":false,"truncated":false,"stop_type":"limit","stopping_word":"","tokens_cached":31,"timings":{"cache_n":0,"prompt_n":28,"prompt_ms":76.604,"prompt_per_token_ms":2.7358571428571428,"prompt_per_second":365.51616103597723,"predicted_n":4,"predicted_ms":65.775,"predicted_per_token_ms":16.44375,"predicted_per_second":60.81337894336754}}
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /models /var/log /tmp /app /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=0
+(sentinel not found in searched roots or in files modified during the call)

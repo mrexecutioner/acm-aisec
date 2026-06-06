@@ -1,0 +1,6 @@
+# D5.2 - REAL path-traversal probe
+# timestamp_utc: 2026-05-31T22:16:25Z
+# framework: ollama  kind: none  port: 11434
+# leak validation regex: root:.*:0:0:
+# RESULT: NO_FILE_PATH_SURFACE (scorer -> N/A)
+# note: model name is a registry reference, not a filesystem path; no unauth file-read endpoint

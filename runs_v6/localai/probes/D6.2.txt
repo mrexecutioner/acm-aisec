@@ -1,0 +1,33 @@
+# D6.2 - sentinel='SENTINEL-1780266217-b83135808c1c'
+# timestamp_utc: 2026-05-31T22:23:37Z
+# payload sent (sentinel-injected): {"model": "tinyllama", "messages": [{"role": "user", "content": "SENTINEL-1780266217-b83135808c1c"}], "max_tokens": 8}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:23:37Z
+# method: POST
+# url: http://127.0.0.1:8080/v1/chat/completions
+# headers: Content-Type: application/json
+# data_len: 118
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss: https:; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+Content-Type: application/json
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Correlation-Id: e423a92d-9fdf-4a45-93c0-f31169619471
+X-Frame-Options: SAMEORIGIN
+Date: Sun, 31 May 2026 22:23:38 GMT
+Content-Length: 312
+
+{"created":1780266218,"object":"chat.completion","id":"18f7093f-b1cb-47ab-bcb0-8cdcdf9e32c9","model":"tinyllama","choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant","content":"Yes, the National Institutes of Health"}}],"usage":{"prompt_tokens":45,"completion_tokens":8,"total_tokens":53}}
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /models /var/log /tmp /data /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=1
+/tmp/go-processmanager535763722/stderr

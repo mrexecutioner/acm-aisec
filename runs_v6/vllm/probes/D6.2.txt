@@ -1,0 +1,28 @@
+# D6.2 - sentinel='SENTINEL-1780266079-c9554fc3bb20'
+# timestamp_utc: 2026-05-31T22:21:19Z
+# payload sent (sentinel-injected): {"model": "facebook/opt-125m", "prompt": "SENTINEL-1780266079-c9554fc3bb20", "max_tokens": 4}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:21:19Z
+# method: POST
+# url: http://127.0.0.1:8000/v1/completions
+# headers: Content-Type: application/json
+# data_len: 93
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+date: Sun, 31 May 2026 22:21:19 GMT
+server: uvicorn
+content-length: 482
+content-type: application/json
+
+{"id":"cmpl-bb05f738e0e1a24b","object":"text_completion","created":1780266079,"model":"facebook/opt-125m","choices":[{"index":0,"text":"d057178-","logprobs":null,"finish_reason":"length","stop_reason":null,"token_ids":null,"prompt_logprobs":null,"prompt_token_ids":null,"routed_experts":null}],"service_tier":null,"system_fingerprint":"vllm-0.22.0-4509ad14","usage":{"prompt_tokens":19,"total_tokens":23,"completion_tokens":4,"prompt_tokens_details":null},"kv_transfer_params":null}
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /root/.cache/huggingface /var/log /tmp /root/.cache /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=0
+(sentinel not found in searched roots or in files modified during the call)

