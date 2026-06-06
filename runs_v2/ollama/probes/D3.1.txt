@@ -1,0 +1,17 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T19:54:52Z
+# method: GET
+# url: http://127.0.0.1:11434/api/tags
+# headers: Content-Type: application/json
+# data_len: 0
+# timeout_s: 8
+# note: unauth list-models
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Sat, 30 May 2026 19:54:52 GMT
+Content-Length: 341
+
+{"models":[{"name":"tinyllama:latest","model":"tinyllama:latest","modified_at":"2026-05-30T19:54:45.490856711Z","size":637700138,"digest":"2644915ede352ea7bdfaff0bfac0be74c719d5d5202acb63a6fb095b52f394a4","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"1B","quantization_level":"Q4_0"}}]}
+# --- meta ---
+# curl_exit: 0

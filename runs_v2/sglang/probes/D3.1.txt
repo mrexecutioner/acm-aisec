@@ -1,0 +1,18 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T20:40:08Z
+# method: GET
+# url: http://127.0.0.1:30000/v1/models
+# headers: Content-Type: application/json
+# data_len: 0
+# timeout_s: 8
+# note: unauth list-models
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+date: Sat, 30 May 2026 20:40:08 GMT
+server: uvicorn
+content-length: 192
+content-type: application/json
+
+{"object":"list","data":[{"id":"Qwen/Qwen2.5-0.5B-Instruct","object":"model","created":1780173608,"owned_by":"sglang","root":"Qwen/Qwen2.5-0.5B-Instruct","parent":null,"max_model_len":32768}]}
+# --- meta ---
+# curl_exit: 0

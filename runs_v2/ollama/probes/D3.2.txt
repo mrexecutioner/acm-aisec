@@ -1,0 +1,25 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T19:54:52Z
+# method: POST
+# url: http://127.0.0.1:11434/api/pull
+# headers: Content-Type: application/json
+# data_len: 21
+# timeout_s: 8
+# note: unauth pull/load
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Type: application/x-ndjson
+Date: Sat, 30 May 2026 19:54:52 GMT
+Transfer-Encoding: chunked
+
+{"status":"pulling manifest"}
+{"status":"pulling 2af3b81862c6","digest":"sha256:2af3b81862c6be03c769683af18efdadb2c33f60ff32ab6f83e42c043d6c7816","total":637699456,"completed":637699456}
+{"status":"pulling af0ddbdaaa26","digest":"sha256:af0ddbdaaa26f30d54d727f9dd944b76bdb926fdaf9a58f63f78c532f57c191f","total":70,"completed":70}
+{"status":"pulling c8472cd9daed","digest":"sha256:c8472cd9daed5e7c20aa53689e441e10620a002aacd58686aeac2cb188addb5c","total":31,"completed":31}
+{"status":"pulling fa956ab37b8c","digest":"sha256:fa956ab37b8c21152f975a7fcdd095c4fee8754674b21d9b44d710435697a00d","total":98,"completed":98}
+{"status":"pulling 6331358be52a","digest":"sha256:6331358be52a6ebc2fd0755a51ad1175734fd17a628ab5ea6897109396245362","total":483,"completed":483}
+{"status":"verifying sha256 digest"}
+{"status":"writing manifest"}
+{"status":"success"}
+# --- meta ---
+# curl_exit: 0

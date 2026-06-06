@@ -1,0 +1,17 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T19:54:54Z
+# method: DELETE
+# url: http://127.0.0.1:11434/api/delete
+# headers: Content-Type: application/json
+# data_len: 34
+# timeout_s: 8
+# note: unauth delete
+# --- raw response (headers + body) ---
+HTTP/1.1 404 Not Found
+Content-Type: application/json; charset=utf-8
+Date: Sat, 30 May 2026 19:54:54 GMT
+Content-Length: 52
+
+{"error":"model 'nonexistent-test-model' not found"}
+# --- meta ---
+# curl_exit: 0

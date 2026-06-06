@@ -1,0 +1,12 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T19:54:54Z
+# method: POST
+# url: http://127.0.0.1:11434/api/generate
+# headers: Content-Type: application/json
+# data_len: 54
+# timeout_s: 8
+# note: unauth inference (D4.1 = D2.1 by design)
+# --- raw response (headers + body) ---
+curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+# --- meta ---
+# curl_exit: 28

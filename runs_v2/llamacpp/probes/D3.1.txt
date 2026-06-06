@@ -1,0 +1,19 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T20:58:03Z
+# method: GET
+# url: http://127.0.0.1:8080/v1/models
+# headers: Content-Type: application/json
+# data_len: 0
+# timeout_s: 8
+# note: unauth list-models
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Keep-Alive: timeout=5, max=100
+Content-Type: application/json; charset=utf-8
+Server: llama.cpp
+Content-Length: 555
+Access-Control-Allow-Origin: 
+
+{"models":[{"name":"model.gguf","model":"model.gguf","modified_at":"","size":"","digest":"","type":"model","description":"","tags":[""],"capabilities":["completion"],"parameters":"","details":{"parent_model":"","format":"gguf","family":"","families":[""],"parameter_size":"","quantization_level":""}}],"object":"list","data":[{"id":"model.gguf","aliases":[],"tags":[],"object":"model","created":1780174683,"owned_by":"llamacpp","meta":{"vocab_type":1,"n_vocab":32000,"n_ctx":2048,"n_ctx_train":2048,"n_embd":2048,"n_params":1100048384,"size":667078656}}]}
+# --- meta ---
+# curl_exit: 0

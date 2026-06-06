@@ -1,0 +1,18 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T20:32:43Z
+# method: GET
+# url: http://127.0.0.1:5000/v1/models
+# headers: Content-Type: application/json
+# data_len: 0
+# timeout_s: 8
+# note: unauth list-models
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+date: Sat, 30 May 2026 20:32:42 GMT
+server: uvicorn
+content-length: 27
+content-type: application/json
+
+{"object":"list","data":[]}
+# --- meta ---
+# curl_exit: 0

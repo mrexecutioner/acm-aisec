@@ -1,0 +1,209 @@
+# D5.3 - container User + Privileged
+# timestamp_utc: 2026-05-30T20:32:48Z
+# container: secdefaults-tgwui
+User="" Privileged=false CapAdd=null
+
+# Also: whoami inside container ->
+uid=0(root) gid=0(root) groups=0(root)
+
+# Full JSON:
+[
+    {
+        "Id": "343c131b1c575fd9c3b03d71dfe04e9dc75487d2157023a22596490989585080",
+        "Created": "2026-05-30T20:32:37.086426147Z",
+        "Path": "/scripts/docker-entrypoint.sh",
+        "Args": [
+            "python3.13",
+            "/app/server.py"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 24846,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-30T20:32:37.202760565Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:2b0ed7669a95f0daef6f42eb3cca9e0a9377cf81274522bb4254d90909a867dd",
+        "ResolvConfPath": "/var/lib/docker/containers/343c131b1c575fd9c3b03d71dfe04e9dc75487d2157023a22596490989585080/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/343c131b1c575fd9c3b03d71dfe04e9dc75487d2157023a22596490989585080/hostname",
+        "HostsPath": "/var/lib/docker/containers/343c131b1c575fd9c3b03d71dfe04e9dc75487d2157023a22596490989585080/hosts",
+        "LogPath": "/var/lib/docker/containers/343c131b1c575fd9c3b03d71dfe04e9dc75487d2157023a22596490989585080/343c131b1c575fd9c3b03d71dfe04e9dc75487d2157023a22596490989585080-json.log",
+        "Name": "/secdefaults-tgwui",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "secdefaults-tgwui_default",
+            "PortBindings": {
+                "5000/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "5000"
+                    }
+                ],
+                "7860/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "7860"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "343c131b1c57",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "5000/tcp": {},
+                "5005/tcp": {},
+                "7860/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "EXTRA_LAUNCH_ARGS=--listen --api",
+                "PATH=/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DEBIAN_FRONTEND=noninteractive",
+                "VIRTUAL_ENV=/venv",
+                "PYTHONUNBUFFERED=1",
+                "BUILD_DATE=2026-05-15 14:48:01",
+                "VERSION_TAG=v4.8"
+            ],
+            "Cmd": [
+                "python3.13",
+                "/app/server.py"
+            ],
+            "Image": "atinoda/text-generation-webui:default-cpu",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "/scripts/docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "971b6c3eb010735a8435f3f484f416663fd6c78c5beb3b1fabeb1905dc78d480",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:2b0ed7669a95f0daef6f42eb3cca9e0a9377cf81274522bb4254d90909a867dd",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "secdefaults-tgwui",
+                "com.docker.compose.project.config_files": "/home/anon/workshop/frameworks/tgwui/compose.yml",
+                "com.docker.compose.project.working_dir": "/home/anon/workshop/frameworks/tgwui",
+                "com.docker.compose.service": "tgwui",
+                "com.docker.compose.version": "5.1.3",
+                "desktop.docker.io/wsl-distro": "Ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {

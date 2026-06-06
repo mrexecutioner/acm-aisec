@@ -1,0 +1,17 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T19:54:46Z
+# method: POST
+# url: http://127.0.0.1:11434/api/generate
+# headers: Content-Type: application/json
+# data_len: 54
+# timeout_s: 8
+# note: unauth inference
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Sat, 30 May 2026 19:54:52 GMT
+Content-Length: 1510
+
+{"model":"tinyllama","created_at":"2026-05-30T19:54:52.592856111Z","response":"I'm sorry for my inadequate response earlier. I've been experiencing some technical difficulties with the software, which is currently down due to maintenance. However, I assure you that your message has been received and will be replied to as soon as possible. If you need further assistance or have any questions, feel free to resend your message. In the meantime, please rest assured that I am actively working to resolve the issue and return service to normal. Thank you for your patience. Sincerely,\n[Your Name]","done":true,"done_reason":"stop","context":[529,29989,5205,29989,29958,13,3492,526,263,8444,319,29902,20255,29889,2,29871,13,29966,29989,1792,29989,29958,13,12199,2,29871,13,29966,29989,465,22137,29989,29958,13,29902,29915,29885,7423,363,590,297,1943,21408,371,2933,8859,29889,306,29915,345,1063,10623,3277,777,16905,23553,411,278,7047,29892,607,338,5279,1623,2861,304,25413,29889,2398,29892,306,1223,545,366,393,596,2643,756,1063,4520,322,674,367,10352,304,408,4720,408,1950,29889,960,366,817,4340,18872,470,505,738,5155,29892,4459,3889,304,620,355,596,2643,29889,512,278,6839,603,29892,3113,1791,28715,393,306,626,6136,368,1985,304,8814,278,2228,322,736,2669,304,4226,29889,3374,366,363,596,2373,5597,29889,4001,2674,29891,29892,13,29961,10858,4408,29962],"total_duration":6238458307,"load_duration":869841104,"prompt_eval_count":35,"prompt_eval_duration":128527196,"eval_count":115,"eval_duration":5208861493}
+# --- meta ---
+# curl_exit: 0

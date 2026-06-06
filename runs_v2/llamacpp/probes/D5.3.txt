@@ -1,0 +1,209 @@
+# D5.3 - container User + Privileged
+# timestamp_utc: 2026-05-30T20:58:12Z
+# container: secdefaults-llamacpp
+User="" Privileged=false CapAdd=null
+
+# Also: whoami inside container ->
+uid=0(root) gid=0(root) groups=0(root)
+
+# Full JSON:
+[
+    {
+        "Id": "689226ac4c6da76c5659dc3b6e077727c2ad22986f9d65091bda116aee0bcb96",
+        "Created": "2026-05-30T20:57:33.295194077Z",
+        "Path": "/app/llama-server",
+        "Args": [
+            "-m",
+            "/models/model.gguf",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "8080"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 42732,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-30T20:57:33.411947385Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-05-30T20:58:03.569129658Z",
+                        "End": "2026-05-30T20:58:03.652752918Z",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0{\"status\":\"ok\"}\r100    15  100    15    0     0  34168      0 --:--:-- --:--:-- --:--:-- 15000\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:1c2e5802addaaf61684532d828664027b5daaf2e2b29943cf338b7005e4ea9ca",
+        "ResolvConfPath": "/var/lib/docker/containers/689226ac4c6da76c5659dc3b6e077727c2ad22986f9d65091bda116aee0bcb96/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/689226ac4c6da76c5659dc3b6e077727c2ad22986f9d65091bda116aee0bcb96/hostname",
+        "HostsPath": "/var/lib/docker/containers/689226ac4c6da76c5659dc3b6e077727c2ad22986f9d65091bda116aee0bcb96/hosts",
+        "LogPath": "/var/lib/docker/containers/689226ac4c6da76c5659dc3b6e077727c2ad22986f9d65091bda116aee0bcb96/689226ac4c6da76c5659dc3b6e077727c2ad22986f9d65091bda116aee0bcb96-json.log",
+        "Name": "/secdefaults-llamacpp",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/anon/workshop/frameworks/llamacpp/models:/models:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "secdefaults-llamacpp_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/anon/workshop/frameworks/llamacpp/models",
+                "Destination": "/models",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "689226ac4c6d",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LLAMA_ARG_HOST=0.0.0.0"
+            ],
+            "Cmd": [
+                "-m",
+                "/models/model.gguf",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8080"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "curl",
+                    "-f",
