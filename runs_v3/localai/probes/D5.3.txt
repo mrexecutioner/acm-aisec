@@ -1,0 +1,209 @@
+# D5.3 - container User + Privileged
+# timestamp_utc: 2026-05-30T22:08:40Z
+# container: secdefaults-localai
+User="" Privileged=false CapAdd=null
+
+# Also: whoami inside container ->
+uid=0(root) gid=0(root) groups=0(root)
+
+# Full JSON:
+[
+    {
+        "Id": "89ef4b302439944432ef79c12cc53ba3f9b5adcdae874bb4dffe0dcdc5d2ac50",
+        "Created": "2026-05-30T22:08:35.298493053Z",
+        "Path": "/entrypoint.sh",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 55406,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-30T22:08:35.912942638Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "starting",
+                "FailingStreak": 0,
+                "Log": []
+            }
+        },
+        "Image": "sha256:d62ab7bb1c578febf2a4ea2566c294d5f334bdd822e48a896ee10cca950ec177",
+        "ResolvConfPath": "/var/lib/docker/containers/89ef4b302439944432ef79c12cc53ba3f9b5adcdae874bb4dffe0dcdc5d2ac50/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/89ef4b302439944432ef79c12cc53ba3f9b5adcdae874bb4dffe0dcdc5d2ac50/hostname",
+        "HostsPath": "/var/lib/docker/containers/89ef4b302439944432ef79c12cc53ba3f9b5adcdae874bb4dffe0dcdc5d2ac50/hosts",
+        "LogPath": "/var/lib/docker/containers/89ef4b302439944432ef79c12cc53ba3f9b5adcdae874bb4dffe0dcdc5d2ac50/89ef4b302439944432ef79c12cc53ba3f9b5adcdae874bb4dffe0dcdc5d2ac50-json.log",
+        "Name": "/secdefaults-localai",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/anon/workshop/frameworks/localai/models:/models:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "secdefaults-localai_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "2194e5a792b336cd8e946a071b65959ead0da4393a2f2d624b67520844a9c96a",
+                "Source": "/var/lib/docker/volumes/2194e5a792b336cd8e946a071b65959ead0da4393a2f2d624b67520844a9c96a/_data",
+                "Destination": "/configuration",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "efbf22c9d09ef8bdb90867d6e1020d5f2a41ff5fb99f93c1fbac5aa57f6b31b2",
+                "Source": "/var/lib/docker/volumes/efbf22c9d09ef8bdb90867d6e1020d5f2a41ff5fb99f93c1fbac5aa57f6b31b2/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/anon/workshop/frameworks/localai/models",
+                "Destination": "/models",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "volume",
+                "Name": "771898ad981a2fe3786ec480d589db44f5b16fa959b8b12af55e6be7d098a1e2",
+                "Source": "/var/lib/docker/volumes/771898ad981a2fe3786ec480d589db44f5b16fa959b8b12af55e6be7d098a1e2/_data",
+                "Destination": "/backends",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "89ef4b302439",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [

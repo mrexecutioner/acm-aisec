@@ -1,0 +1,22 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-30T22:08:37Z
+# method: POST
+# url: http://127.0.0.1:8080/models/apply
+# headers: Content-Type: application/json
+# data_len: 23
+# timeout_s: 8
+# note: unauth pull/load
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss: https:; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+Content-Type: application/json
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Date: Sat, 30 May 2026 22:08:37 GMT
+Content-Length: 130
+
+{"uuid":"1b70017c-5c74-11f1-8394-ca6c27b5e558","status":"http://127.0.0.1:8080/models/jobs/1b70017c-5c74-11f1-8394-ca6c27b5e558"}
+# --- meta ---
+# curl_exit: 0
