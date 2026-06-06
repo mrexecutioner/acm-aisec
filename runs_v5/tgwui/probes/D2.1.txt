@@ -1,0 +1,18 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-31T21:23:02Z
+# method: POST
+# url: http://127.0.0.1:5000/v1/chat/completions
+# headers: Content-Type: application/json
+# data_len: 48
+# timeout_s: 8
+# note: unauth inference
+# --- raw response (headers + body) ---
+HTTP/1.1 500 Internal Server Error
+date: Sun, 31 May 2026 21:23:02 GMT
+server: uvicorn
+content-length: 21
+content-type: text/plain; charset=utf-8
+
+Internal Server Error
+# --- meta ---
+# curl_exit: 0
