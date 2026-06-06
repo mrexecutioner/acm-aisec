@@ -1,0 +1,29 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-31T20:55:21Z
+# method: POST
+# url: http://127.0.0.1:8080/generate
+# headers: Content-Type: application/json
+# data_len: 52
+# timeout_s: 8
+# note: unauth inference
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+content-type: application/json
+x-compute-type: gpu+optimized
+x-compute-time: 0.321206659
+x-compute-characters: 5
+x-total-time: 321
+x-validation-time: 4
+x-queue-time: 0
+x-inference-time: 316
+x-time-per-token: 79
+x-prompt-tokens: 1
+x-generated-tokens: 4
+vary: origin, access-control-request-method, access-control-request-headers
+access-control-allow-origin: *
+content-length: 28
+date: Sun, 31 May 2026 20:55:21 GMT
+
+{"generated_text":", PA)\n"}
+# --- meta ---
+# curl_exit: 0

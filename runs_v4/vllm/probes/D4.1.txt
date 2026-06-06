@@ -1,0 +1,18 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-31T04:23:59Z
+# method: POST
+# url: http://127.0.0.1:8000/v1/completions
+# headers: Content-Type: application/json
+# data_len: 61
+# timeout_s: 8
+# note: unauth inference (D4.1 = D2.1 by design)
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+date: Sun, 31 May 2026 04:23:59 GMT
+server: uvicorn
+content-length: 488
+content-type: application/json
+
+{"id":"cmpl-82e0f71ec03cf543","object":"text_completion","created":1780201439,"model":"facebook/opt-125m","choices":[{"index":0,"text":", i run Keyboard","logprobs":null,"finish_reason":"length","stop_reason":null,"token_ids":null,"prompt_logprobs":null,"prompt_token_ids":null,"routed_experts":null}],"service_tier":null,"system_fingerprint":"vllm-0.22.0-4509ad14","usage":{"prompt_tokens":2,"total_tokens":6,"completion_tokens":4,"prompt_tokens_details":null},"kv_transfer_params":null}
+# --- meta ---
+# curl_exit: 0

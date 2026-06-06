@@ -1,0 +1,18 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-31T15:18:52Z
+# method: POST
+# url: http://127.0.0.1:30000/v1/chat/completions
+# headers: Content-Type: application/json
+# data_len: 82
+# timeout_s: 8
+# note: unauth inference
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+date: Sun, 31 May 2026 15:18:52 GMT
+server: uvicorn
+content-length: 492
+content-type: application/json
+
+{"id":"3d2be040920c4b43a00bfe6645bc2e2a","object":"chat.completion","created":1780240732,"model":"Qwen/Qwen2.5-0.5B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello! How can I assist you today?","reasoning_content":null,"tool_calls":null},"logprobs":null,"finish_reason":"stop","matched_stop":151645}],"usage":{"prompt_tokens":30,"total_tokens":40,"completion_tokens":10,"prompt_tokens_details":null,"reasoning_tokens":0},"metadata":{"weight_version":"default"}}
+# --- meta ---
+# curl_exit: 0

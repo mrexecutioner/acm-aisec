@@ -1,0 +1,19 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-31T20:55:21Z
+# method: GET
+# url: http://127.0.0.1:8080/info
+# headers: Content-Type: application/json
+# data_len: 0
+# timeout_s: 8
+# note: unauth list-models
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+content-type: application/json
+vary: origin, access-control-request-method, access-control-request-headers
+access-control-allow-origin: *
+content-length: 436
+date: Sun, 31 May 2026 20:55:21 GMT
+
+{"model_id":"openai-community/gpt2","model_sha":"607a30d783dfa663caf39e06633721c8d4cfcd7e","model_pipeline_tag":"text-generation","max_concurrent_requests":128,"max_best_of":2,"max_stop_sequences":4,"max_input_tokens":1023,"max_total_tokens":1024,"validation_workers":2,"max_client_batch_size":4,"router":"text-generation-router","version":"3.0.2","sha":"e413b01eb19f2367c8a87bc8c46049c928a9a1c2","docker_label":"sha-e413b01-intel-cpu"}
+# --- meta ---
+# curl_exit: 0

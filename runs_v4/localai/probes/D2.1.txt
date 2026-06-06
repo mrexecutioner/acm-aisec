@@ -1,0 +1,23 @@
+# curl_local transcript
+# timestamp_utc: 2026-05-31T15:37:43Z
+# method: POST
+# url: http://127.0.0.1:8080/v1/chat/completions
+# headers: Content-Type: application/json
+# data_len: 83
+# timeout_s: 8
+# note: unauth inference
+# --- raw response (headers + body) ---
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss: https:; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+Content-Type: application/json
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Correlation-Id: 4e413b1e-b5fd-44cf-a607-066eeb54adf7
+X-Frame-Options: SAMEORIGIN
+Date: Sun, 31 May 2026 15:37:43 GMT
+Content-Length: 305
+
+{"created":1780241863,"object":"chat.completion","id":"d1565a83-6813-4e81-9124-f3276411602b","model":"tinyllama","choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant","content":"In the context of the text, the"}}],"usage":{"prompt_tokens":18,"completion_tokens":8,"total_tokens":26}}
+# --- meta ---
+# curl_exit: 0

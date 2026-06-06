@@ -1,0 +1,209 @@
+# D5.3 - container User + Privileged
+# timestamp_utc: 2026-05-31T20:55:23Z
+# container: secdefaults-tgi
+User="" Privileged=false CapAdd=null
+
+# Also: whoami inside container ->
+uid=0(root) gid=0(root) groups=0(root)
+
+# Full JSON:
+[
+    {
+        "Id": "823840e460b64f8b6cdde48a1c6265fb486cc821c9adbcfe408acfc4276dd348",
+        "Created": "2026-05-31T20:39:35.481288037Z",
+        "Path": "text-generation-launcher",
+        "Args": [
+            "--model-id",
+            "gpt2",
+            "--port",
+            "80"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 92046,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-31T20:39:37.461130082Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:85e38ef5cd871c7293144a19361d3e0ecb548a287899f1a6ddff72c2a863db4b",
+        "ResolvConfPath": "/var/lib/docker/containers/823840e460b64f8b6cdde48a1c6265fb486cc821c9adbcfe408acfc4276dd348/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/823840e460b64f8b6cdde48a1c6265fb486cc821c9adbcfe408acfc4276dd348/hostname",
+        "HostsPath": "/var/lib/docker/containers/823840e460b64f8b6cdde48a1c6265fb486cc821c9adbcfe408acfc4276dd348/hosts",
+        "LogPath": "/var/lib/docker/containers/823840e460b64f8b6cdde48a1c6265fb486cc821c9adbcfe408acfc4276dd348/823840e460b64f8b6cdde48a1c6265fb486cc821c9adbcfe408acfc4276dd348-json.log",
+        "Name": "/secdefaults-tgi",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "secdefaults-tgi_tgi_data:/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "secdefaults-tgi_default",
+            "PortBindings": {
+                "80/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 1073741824,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "secdefaults-tgi_tgi_data",
+                "Source": "/var/lib/docker/volumes/secdefaults-tgi_tgi_data/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "823840e460b6",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "HUGGINGFACE_HUB_CACHE=/data",
+                "HF_HUB_ENABLE_HF_TRANSFER=1",
+                "PORT=80",
+                "LD_PRELOAD=/opt/conda/lib/libtcmalloc.so",
+                "CCL_ROOT=/opt/conda/lib/python3.11/site-packages/oneccl_bindings_for_pytorch",
+                "I_MPI_ROOT=/opt/conda/lib/python3.11/site-packages/oneccl_bindings_for_pytorch",
+                "FI_PROVIDER_PATH=/opt/conda/lib/python3.11/site-packages/oneccl_bindings_for_pytorch/opt/mpi/libfabric/lib/prov:/usr/lib64/libfabric",
+                "LD_LIBRARY_PATH=/opt/conda/lib/python3.11/site-packages/oneccl_bindings_for_pytorch/opt/mpi/libfabric/lib:/opt/conda/lib/python3.11/site-packages/oneccl_bindings_for_pytorch/lib:/opt/conda/lib/",
+                "UV_SYSTEM_PYTHON=1",
+                "ATTENTION=flashdecoding-ipex",
+                "PREFIX_CACHING=1",
+                "PREFILL_CHUNKING=1",
+                "CUDA_GRAPHS=0"
+            ],
+            "Cmd": [
+                "--model-id",
+                "gpt2",
+                "--port",
+                "80"
+            ],
+            "Image": "ghcr.io/huggingface/text-generation-inference:3.0-intel-cpu",
+            "Volumes": null,
+            "WorkingDir": "/usr/src",
+            "Entrypoint": [
+                "text-generation-launcher"
+            ],
+            "Labels": {
