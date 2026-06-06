@@ -1,0 +1,17 @@
+# LocalAI - v3 compose: plain standard image + a single pre-staged tiny GGUF.
+# v2 used localai/localai:latest-aio-cpu, whose entrypoint downloads several GB of
+# bundled models on first boot and does NOT bind :8080 until done, it blew past
+# the 15-min readiness ceiling. The plain image starts its HTTP server (and
+# /readyz) immediately and auto-registers any *.gguf found in the models dir, so a
+# single small pre-staged model boots fast. Model is inference substrate only.
+services:
+  localai:
+    image: localai/localai:latest
+    container_name: secdefaults-localai
+    ports:
+      - "8080:8080"
+    environment:
+      MODELS_PATH: /models
+    volumes:
+      - ./models:/models
+    restart: unless-stopped

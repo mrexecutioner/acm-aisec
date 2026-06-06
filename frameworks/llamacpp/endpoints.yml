@@ -1,0 +1,25 @@
+# llama.cpp endpoint map
+port: 8080
+bind_default: 127.0.0.1
+# NOTE: llama-server defaults to 127.0.0.1 unless --host is passed. The quickstart
+# often passes --host 0.0.0.0; doc-honesty (D1.2) is the relevant axis.
+container_name: secdefaults-llamacpp
+data_dir_in_container: /models
+readiness: /health
+
+inference: /completion
+inference_method: POST
+inference_payload: {"prompt":"hello","n_predict":4}
+
+# OpenAI-compat endpoint also available
+list_models: /v1/models
+
+# No native pull/push/delete in core llama-server.
+
+template_payload: {"prompt":"hello","grammar":""}
+traversal_path: /props
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: get_path
+traversal_get: /{PAYLOAD}
+traversal_note: llama-server static file handler at /

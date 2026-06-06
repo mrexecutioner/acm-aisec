@@ -1,0 +1,31 @@
+# Ollama HTTP endpoint map (flat YAML)
+port: 11434
+bind_default: 0.0.0.0
+container_name: secdefaults-ollama
+data_dir_in_container: /root/.ollama
+readiness: /api/tags
+
+inference: /api/generate
+inference_method: POST
+inference_payload: {"model":"tinyllama","prompt":"hello","stream":false}
+
+list_models: /api/tags
+
+pull: /api/pull
+pull_payload: {"name":"tinyllama"}
+
+# Ollama has no push-to-network endpoint by default; /api/create exists but is local.
+# Leaving push unset -> D3.3 records N/A.
+
+delete: /api/delete
+delete_target: {"name":"nonexistent-test-model"}
+
+# Template/tool surface - Ollama supports tools in the chat endpoint
+template_payload: {"model":"tinyllama","messages":[{"role":"user","content":"test"}],"tools":[]}
+
+# Path-traversal probe target (benign)
+traversal_path: /api/show?name=../../../etc/passwd
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: none
+traversal_note: model name is a registry reference, not a filesystem path; no unauth file-read endpoint

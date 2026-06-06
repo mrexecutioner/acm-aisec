@@ -1,0 +1,21 @@
+# TGI endpoint map
+port: 8080
+bind_default: 0.0.0.0
+container_name: secdefaults-tgi
+data_dir_in_container: /data
+readiness: /health
+
+inference: /generate
+inference_method: POST
+inference_payload: {"inputs":"hello","parameters":{"max_new_tokens":4}}
+
+# Newer TGI versions expose OpenAI-compat /v1/* at the same port
+list_models: /info
+
+# TGI doesn't expose pull/push/delete; model is fixed at launch.
+template_payload: {"inputs":"hello","parameters":{"max_new_tokens":4,"return_full_text":false}}
+traversal_path: /metrics
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: none
+traversal_note: model fixed at launch via --model-id; no file-path parameter

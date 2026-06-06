@@ -1,0 +1,3 @@
+# Jan has no official container image; desktop application only.
+# File exists to satisfy repo layout; compose is a no-op.
+services: {}

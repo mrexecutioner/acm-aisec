@@ -1,0 +1,34 @@
+# LocalAI endpoint map (OpenAI-compat + extensions)
+port: 8080
+bind_default: 0.0.0.0
+container_name: secdefaults-localai
+# v3: plain image uses /models (v2 aio-cpu used /build/models).
+data_dir_in_container: /models
+readiness: /readyz
+
+inference: /v1/chat/completions
+inference_method: POST
+# v4: model "tinyllama" served via a model-def YAML + llama-cpp backend (the plain
+# image auto-registers neither). max_tokens caps CPU generation so the response
+# returns well inside the probe timeout (without it, tinyllama on CPU streams ~200
+# tokens and exceeds 8s -> false UNK).
+inference_payload: {"model":"tinyllama","messages":[{"role":"user","content":"hello"}],"max_tokens":8}
+
+list_models: /v1/models
+
+# LocalAI gallery: pull a model via /models/apply
+pull: /models/apply
+pull_payload: {"id":"localai@phi-2"}
+
+# LocalAI does support delete (custom endpoint)
+delete: /models/delete/test
+delete_target: {}
+
+template_payload: {"model":"tinyllama","messages":[{"role":"user","content":"hi"}],"functions":[]}
+traversal_path: /models/available
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: post_body
+traversal_post_ep: /models/apply
+traversal_post: {"url":"file://{PAYLOAD}"}
+traversal_note: /models/apply loads a model by url/id (path-injection surface); tests for file-content leak

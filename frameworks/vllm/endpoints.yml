@@ -1,0 +1,22 @@
+# vLLM endpoint map (OpenAI-compatible)
+port: 8000
+bind_default: 0.0.0.0
+container_name: secdefaults-vllm
+data_dir_in_container: /root/.cache/huggingface
+readiness: /health
+
+inference: /v1/completions
+inference_method: POST
+inference_payload: {"model":"facebook/opt-125m","prompt":"hello","max_tokens":4}
+
+list_models: /v1/models
+
+# vLLM has no documented pull/push/delete in the standard server.
+# pull, push, delete left unset -> N/A rows.
+
+template_payload: {"model":"facebook/opt-125m","prompt":"hello","logit_bias":{}}
+traversal_path: /v1/models/../../etc/passwd
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: none
+traversal_note: model fixed at launch; OpenAI-compat API exposes no file-path parameter

@@ -1,0 +1,29 @@
+# Text-Generation-WebUI endpoint map
+# The HTTP API is at port 5000 (OpenAI-compat). 7860 is the Gradio UI.
+port: 5000
+bind_default: 127.0.0.1   # binary default is localhost unless --listen is passed
+container_name: secdefaults-tgwui
+data_dir_in_container: /app/logs
+readiness: /v1/models
+
+inference: /v1/chat/completions
+inference_method: POST
+inference_payload: {"messages":[{"role":"user","content":"hello"}]}
+
+list_models: /v1/models
+
+# Model load/unload endpoints exist
+pull: /v1/internal/model/load
+pull_payload: {"model_name":"none"}
+
+delete: /v1/internal/model/unload
+delete_target: {}
+
+template_payload: {"messages":[{"role":"user","content":"hi"}],"tools":[]}
+traversal_path: /v1/internal/logits
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: get_path
+traversal_port: 7860
+traversal_get: /file={PAYLOAD}
+traversal_note: Gradio /file= endpoint (historic file-read surface) on the UI port 7860

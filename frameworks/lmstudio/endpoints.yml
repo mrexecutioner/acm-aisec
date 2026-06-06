@@ -1,0 +1,11 @@
+# LM Studio - documented endpoints when server mode is started manually.
+# Probes will fail / UNK in batch because no server is running.
+port: 1234
+bind_default: 127.0.0.1
+container_name: ""        # n/a - desktop app
+data_dir_in_container: "" # n/a
+
+inference: /v1/chat/completions
+inference_method: POST
+inference_payload: {"model":"local","messages":[{"role":"user","content":"hello"}]}
+list_models: /v1/models

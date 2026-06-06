@@ -1,0 +1,14 @@
+# Ollama - shipped-as-default compose
+# Mirrors the official quickstart `docker run` line; no security hardening added.
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: secdefaults-ollama
+    ports:
+      - "11434:11434"        # default published port; binds 0.0.0.0 by docker convention
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

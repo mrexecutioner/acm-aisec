@@ -1,0 +1,4 @@
+# LM Studio has no official container image; it is a desktop application.
+# This file exists only to satisfy the repo layout. `docker compose` against this
+# file is a no-op.
+services: {}

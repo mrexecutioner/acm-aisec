@@ -1,0 +1,24 @@
+# Hugging Face TGI - v4 compose: CPU image.
+# The GPU image (ghcr.io/huggingface/text-generation-inference:latest) lacks RTX
+# 5090 / Blackwell sm_120 kernels and crash-loops on this host (v2/v3). TGI ships
+# a CPU-capable build; CPU inference is slow but fully adequate for measuring
+# SECURITY DEFAULTS (auth, binding, root, management endpoints, rate limiting),
+# which are independent of inference hardware. See frameworks/tgi/notes.md.
+services:
+  tgi:
+    # latest-intel-cpu ships a broken transformers (ModuleNotFoundError:
+    # transformers.masking_utils -> ShardCannotStart); pin a known-good CPU build.
+    image: ghcr.io/huggingface/text-generation-inference:3.0-intel-cpu
+    container_name: secdefaults-tgi
+    ports:
+      - "8080:80"
+    volumes:
+      - tgi_data:/data
+    shm_size: 1g
+    # No GPU reservation, this is the CPU path.
+    command: >
+      --model-id gpt2 --port 80
+    restart: unless-stopped
+
+volumes:
+  tgi_data:

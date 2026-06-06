@@ -1,0 +1,20 @@
+# vLLM - shipped-as-default compose
+# Mirrors the official `docker run --gpus all` line. No hardening.
+services:
+  vllm:
+    image: vllm/vllm-openai:latest
+    container_name: secdefaults-vllm
+    ports:
+      - "8000:8000"
+    ipc: host
+    # Documented quickstart includes --gpus all; compose equivalent below.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: >
+      --model facebook/opt-125m
+    restart: unless-stopped

@@ -1,0 +1,27 @@
+# SGLang endpoint map (OpenAI-compat + native)
+port: 30000
+bind_default: 0.0.0.0
+container_name: secdefaults-sglang
+data_dir_in_container: /root/.cache/huggingface
+readiness: /health
+
+inference: /v1/chat/completions
+inference_method: POST
+# v2: Qwen2.5-0.5B-Instruct is ungated + tiny (the v1 Llama-3.2-1B is HF-gated and
+# could not download without a token). Inference substrate only, not under study.
+inference_payload: {"model":"Qwen/Qwen2.5-0.5B-Instruct","messages":[{"role":"user","content":"hi"}]}
+
+list_models: /v1/models
+
+# SGLang has /update_weights_from_disk and similar admin endpoints
+pull: /update_weights_from_disk
+pull_payload: {"model_path":"/tmp/nonexistent"}
+
+template_payload: {"model":"local","messages":[{"role":"user","content":"hi"}]}
+traversal_path: /get_model_info
+
+# --- D5.2 real-traversal spec (v6) ---
+traversal_kind: post_body
+traversal_post_ep: /update_weights_from_disk
+traversal_post: {"model_path":"{PAYLOAD}"}
+traversal_note: /update_weights_from_disk takes an arbitrary filesystem path

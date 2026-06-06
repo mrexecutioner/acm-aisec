@@ -1,0 +1,15 @@
+# text-generation-webui - shipped-as-default compose
+# Note: the official repo's docker-compose includes GPU lines; CPU hosts will see
+# the container start but inference may fail. Default does NOT enable --api unless
+# explicitly opted in - we add it because that is what the published "API" docs
+# instruct users to enable, and the OpenAI-compat surface is the only HTTP API.
+services:
+  tgwui:
+    image: atinoda/text-generation-webui:default-cpu
+    container_name: secdefaults-tgwui
+    ports:
+      - "7860:7860"
+      - "5000:5000"
+    environment:
+      EXTRA_LAUNCH_ARGS: "--listen --api"
+    restart: unless-stopped
