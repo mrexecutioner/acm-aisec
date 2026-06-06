@@ -1,0 +1,5 @@
+framework,item_id,score,confidence,evidence_file,notes
+llamacpp,D2.1,INSECURE,HIGH,runs_v5/llamacpp/probes/D2.1.txt,200 OK without auth header
+llamacpp,D4.1,INSECURE,HIGH,runs_v5/llamacpp/probes/D4.1.txt,200 OK without auth header
+tgwui,D2.1,UNK,LOW,runs_v5/tgwui/probes/D2.1.txt,unexpected status 500
+tgwui,D4.1,UNK,LOW,runs_v5/tgwui/probes/D4.1.txt,unexpected status 500

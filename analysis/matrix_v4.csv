@@ -1,0 +1,25 @@
+framework,item_id,score,confidence,evidence_file,notes
+localai,D2.1,INSECURE,HIGH,runs_v4/localai/probes/D2.1.txt,200 OK without auth header
+localai,D4.1,INSECURE,HIGH,runs_v4/localai/probes/D4.1.txt,200 OK without auth header
+sglang,D2.1,INSECURE,HIGH,runs_v4/sglang/probes/D2.1.txt,200 OK without auth header
+sglang,D4.1,INSECURE,HIGH,runs_v4/sglang/probes/D4.1.txt,200 OK without auth header
+tgi,D1.1,UNK,LOW,runs_v4/tgi/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+tgi,D1.2,UNK,LOW,runs_v4/tgi/probes/D1.2.txt,depends on docs language - human-judged at review
+tgi,D2.1,INSECURE,HIGH,runs_v4/tgi/probes/D2.1.txt,200 OK without auth header
+tgi,D2.2,UNK,LOW,runs_v4/tgi/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+tgi,D2.3,UNK,LOW,runs_v4/tgi/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+tgi,D3.1,INSECURE,HIGH,runs_v4/tgi/probes/D3.1.txt,200 OK without auth header
+tgi,D3.2,UNK,LOW,runs_v4/tgi/probes/D3.2.txt,no HTTP status line in transcript
+tgi,D3.3,UNK,LOW,runs_v4/tgi/probes/D3.3.txt,no HTTP status line in transcript
+tgi,D3.4,UNK,LOW,runs_v4/tgi/probes/D3.4.txt,no HTTP status line in transcript
+tgi,D4.1,INSECURE,HIGH,runs_v4/tgi/probes/D4.1.txt,200 OK without auth header
+tgi,D4.2,INSECURE,HIGH,runs_v4/tgi/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+tgi,D5.1,UNK,LOW,runs_v4/tgi/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+tgi,D5.2,UNK,LOW,runs_v4/tgi/probes/D5.2.txt,status 200 - inspect manually
+tgi,D5.3,INSECURE,HIGH,runs_v4/tgi/probes/D5.3.txt,container runs as root / unset User
+tgi,D6.1,UNK,LOW,runs_v4/tgi/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+tgi,D6.2,UNK,LOW,runs_v4/tgi/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 422) - logging surface never exercised, cannot assess"
+tgi,D7.1,UNK,LOW,runs_v4/tgi/probes/D7.1.txt,subjective doc read - human-judged
+tgi,D7.2,UNK,LOW,runs_v4/tgi/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+vllm,D2.1,INSECURE,HIGH,runs_v4/vllm/probes/D2.1.txt,200 OK without auth header
+vllm,D4.1,INSECURE,HIGH,runs_v4/vllm/probes/D4.1.txt,200 OK without auth header

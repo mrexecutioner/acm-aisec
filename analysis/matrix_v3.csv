@@ -1,0 +1,37 @@
+framework,item_id,score,confidence,evidence_file,notes
+localai,D1.1,UNK,LOW,runs_v3/localai/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+localai,D1.2,UNK,LOW,runs_v3/localai/probes/D1.2.txt,depends on docs language - human-judged at review
+localai,D2.1,N_A,HIGH,runs_v3/localai/probes/D2.1.txt,404 - endpoint absent in this framework
+localai,D2.2,UNK,LOW,runs_v3/localai/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+localai,D2.3,UNK,LOW,runs_v3/localai/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+localai,D3.1,INSECURE,HIGH,runs_v3/localai/probes/D3.1.txt,200 OK without auth header
+localai,D3.2,INSECURE,HIGH,runs_v3/localai/probes/D3.2.txt,200 OK without auth header
+localai,D3.3,UNK,LOW,runs_v3/localai/probes/D3.3.txt,no HTTP status line in transcript
+localai,D3.4,UNK,LOW,runs_v3/localai/probes/D3.4.txt,405 method-not-allowed: revisit endpoint method
+localai,D4.1,N_A,HIGH,runs_v3/localai/probes/D4.1.txt,404 - endpoint absent in this framework
+localai,D4.2,INSECURE,HIGH,runs_v3/localai/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+localai,D5.1,UNK,LOW,runs_v3/localai/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+localai,D5.2,INSECURE,LOW,runs_v3/localai/probes/D5.2.txt,200 with file-system-looking content; needs human read of transcript
+localai,D5.3,INSECURE,HIGH,runs_v3/localai/probes/D5.3.txt,container runs as root / unset User
+localai,D6.1,UNK,LOW,runs_v3/localai/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+localai,D6.2,UNK,LOW,runs_v3/localai/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 400) - logging surface never exercised, cannot assess"
+localai,D7.1,UNK,LOW,runs_v3/localai/probes/D7.1.txt,subjective doc read - human-judged
+localai,D7.2,UNK,LOW,runs_v3/localai/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+tgi,D1.1,UNK,LOW,runs_v3/tgi/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+tgi,D1.2,UNK,LOW,runs_v3/tgi/probes/D1.2.txt,depends on docs language - human-judged at review
+tgi,D2.1,UNK,LOW,runs_v3/tgi/probes/D2.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+tgi,D2.2,UNK,LOW,runs_v3/tgi/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+tgi,D2.3,UNK,LOW,runs_v3/tgi/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+tgi,D3.1,UNK,LOW,runs_v3/tgi/probes/D3.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+tgi,D3.2,UNK,LOW,runs_v3/tgi/probes/D3.2.txt,no HTTP status line in transcript
+tgi,D3.3,UNK,LOW,runs_v3/tgi/probes/D3.3.txt,no HTTP status line in transcript
+tgi,D3.4,UNK,LOW,runs_v3/tgi/probes/D3.4.txt,no HTTP status line in transcript
+tgi,D4.1,UNK,LOW,runs_v3/tgi/probes/D4.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+tgi,D4.2,UNK,LOW,runs_v3/tgi/probes/D4.2.txt,"server served only 0 genuine HTTP responses (200 failed/000) - server down/unhealthy, cannot assess throttling"
+tgi,D5.1,UNK,LOW,runs_v3/tgi/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+tgi,D5.2,UNK,LOW,runs_v3/tgi/probes/D5.2.txt,no status
+tgi,D5.3,INSECURE,HIGH,runs_v3/tgi/probes/D5.3.txt,container runs as root / unset User
+tgi,D6.1,UNK,LOW,runs_v3/tgi/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+tgi,D6.2,UNK,LOW,runs_v3/tgi/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (curl exit 56) - logging surface never exercised, cannot assess"
+tgi,D7.1,UNK,LOW,runs_v3/tgi/probes/D7.1.txt,subjective doc read - human-judged
+tgi,D7.2,UNK,LOW,runs_v3/tgi/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step

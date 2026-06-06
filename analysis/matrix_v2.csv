@@ -1,0 +1,127 @@
+framework,item_id,score,confidence,evidence_file,notes
+llamacpp,D1.1,UNK,LOW,runs_v2/llamacpp/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+llamacpp,D1.2,UNK,LOW,runs_v2/llamacpp/probes/D1.2.txt,depends on docs language - human-judged at review
+llamacpp,D2.1,UNK,LOW,runs_v2/llamacpp/probes/D2.1.txt,unexpected status 500
+llamacpp,D2.2,UNK,LOW,runs_v2/llamacpp/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+llamacpp,D2.3,UNK,LOW,runs_v2/llamacpp/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+llamacpp,D3.1,INSECURE,HIGH,runs_v2/llamacpp/probes/D3.1.txt,200 OK without auth header
+llamacpp,D3.2,UNK,LOW,runs_v2/llamacpp/probes/D3.2.txt,no HTTP status line in transcript
+llamacpp,D3.3,UNK,LOW,runs_v2/llamacpp/probes/D3.3.txt,no HTTP status line in transcript
+llamacpp,D3.4,UNK,LOW,runs_v2/llamacpp/probes/D3.4.txt,no HTTP status line in transcript
+llamacpp,D4.1,UNK,LOW,runs_v2/llamacpp/probes/D4.1.txt,unexpected status 500
+llamacpp,D4.2,INSECURE,HIGH,runs_v2/llamacpp/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+llamacpp,D5.1,UNK,LOW,runs_v2/llamacpp/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+llamacpp,D5.2,UNK,LOW,runs_v2/llamacpp/probes/D5.2.txt,status 200 - inspect manually
+llamacpp,D5.3,INSECURE,HIGH,runs_v2/llamacpp/probes/D5.3.txt,container runs as root / unset User
+llamacpp,D6.1,UNK,LOW,runs_v2/llamacpp/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+llamacpp,D6.2,UNK,LOW,runs_v2/llamacpp/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (curl exit 28) - logging surface never exercised, cannot assess"
+llamacpp,D7.1,UNK,LOW,runs_v2/llamacpp/probes/D7.1.txt,subjective doc read - human-judged
+llamacpp,D7.2,UNK,LOW,runs_v2/llamacpp/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+localai,D1.1,UNK,LOW,runs_v2/localai/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+localai,D1.2,UNK,LOW,runs_v2/localai/probes/D1.2.txt,depends on docs language - human-judged at review
+localai,D2.1,UNK,LOW,runs_v2/localai/probes/D2.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+localai,D2.2,UNK,LOW,runs_v2/localai/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+localai,D2.3,UNK,LOW,runs_v2/localai/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+localai,D3.1,UNK,LOW,runs_v2/localai/probes/D3.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+localai,D3.2,UNK,LOW,runs_v2/localai/probes/D3.2.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+localai,D3.3,UNK,LOW,runs_v2/localai/probes/D3.3.txt,no HTTP status line in transcript
+localai,D3.4,UNK,LOW,runs_v2/localai/probes/D3.4.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+localai,D4.1,UNK,LOW,runs_v2/localai/probes/D4.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+localai,D4.2,UNK,LOW,runs_v2/localai/probes/D4.2.txt,"server served only 0 genuine HTTP responses (200 failed/000) - server down/unhealthy, cannot assess throttling"
+localai,D5.1,UNK,LOW,runs_v2/localai/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+localai,D5.2,UNK,LOW,runs_v2/localai/probes/D5.2.txt,no status
+localai,D5.3,UNK,LOW,runs_v2/localai/probes/D5.3.txt,no User field found
+localai,D6.1,UNK,LOW,runs_v2/localai/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+localai,D6.2,UNK,LOW,runs_v2/localai/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (curl exit 56) - logging surface never exercised, cannot assess"
+localai,D7.1,UNK,LOW,runs_v2/localai/probes/D7.1.txt,subjective doc read - human-judged
+localai,D7.2,UNK,LOW,runs_v2/localai/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+ollama,D1.1,UNK,LOW,runs_v2/ollama/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+ollama,D1.2,UNK,LOW,runs_v2/ollama/probes/D1.2.txt,depends on docs language - human-judged at review
+ollama,D2.1,INSECURE,HIGH,runs_v2/ollama/probes/D2.1.txt,200 OK without auth header
+ollama,D2.2,UNK,LOW,runs_v2/ollama/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+ollama,D2.3,UNK,LOW,runs_v2/ollama/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+ollama,D3.1,INSECURE,HIGH,runs_v2/ollama/probes/D3.1.txt,200 OK without auth header
+ollama,D3.2,INSECURE,HIGH,runs_v2/ollama/probes/D3.2.txt,200 OK without auth header
+ollama,D3.3,UNK,LOW,runs_v2/ollama/probes/D3.3.txt,no HTTP status line in transcript
+ollama,D3.4,N_A,HIGH,runs_v2/ollama/probes/D3.4.txt,404 - endpoint absent in this framework
+ollama,D4.1,UNK,LOW,runs_v2/ollama/probes/D4.1.txt,curl exit 28 (request timed out — possible cold model load; cross-check D4.1)
+ollama,D4.2,INSECURE,HIGH,runs_v2/ollama/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+ollama,D5.1,UNK,LOW,runs_v2/ollama/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+ollama,D5.2,UNK,LOW,runs_v2/ollama/probes/D5.2.txt,status 405 - inspect manually
+ollama,D5.3,INSECURE,HIGH,runs_v2/ollama/probes/D5.3.txt,container runs as root / unset User
+ollama,D6.1,UNK,LOW,runs_v2/ollama/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+ollama,D6.2,UNK,LOW,runs_v2/ollama/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 404) - logging surface never exercised, cannot assess"
+ollama,D7.1,UNK,LOW,runs_v2/ollama/probes/D7.1.txt,subjective doc read - human-judged
+ollama,D7.2,UNK,LOW,runs_v2/ollama/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+sglang,D1.1,UNK,LOW,runs_v2/sglang/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+sglang,D1.2,UNK,LOW,runs_v2/sglang/probes/D1.2.txt,depends on docs language - human-judged at review
+sglang,D2.1,UNK,LOW,runs_v2/sglang/probes/D2.1.txt,unexpected status 400
+sglang,D2.2,UNK,LOW,runs_v2/sglang/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+sglang,D2.3,UNK,LOW,runs_v2/sglang/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+sglang,D3.1,INSECURE,HIGH,runs_v2/sglang/probes/D3.1.txt,200 OK without auth header
+sglang,D3.2,UNK,LOW,runs_v2/sglang/probes/D3.2.txt,unexpected status 400
+sglang,D3.3,UNK,LOW,runs_v2/sglang/probes/D3.3.txt,no HTTP status line in transcript
+sglang,D3.4,UNK,LOW,runs_v2/sglang/probes/D3.4.txt,no HTTP status line in transcript
+sglang,D4.1,UNK,LOW,runs_v2/sglang/probes/D4.1.txt,unexpected status 400
+sglang,D4.2,INSECURE,HIGH,runs_v2/sglang/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+sglang,D5.1,UNK,LOW,runs_v2/sglang/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+sglang,D5.2,UNK,LOW,runs_v2/sglang/probes/D5.2.txt,status 200 - inspect manually
+sglang,D5.3,INSECURE,HIGH,runs_v2/sglang/probes/D5.3.txt,container runs as root / unset User
+sglang,D6.1,UNK,LOW,runs_v2/sglang/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+sglang,D6.2,UNK,LOW,runs_v2/sglang/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 400) - logging surface never exercised, cannot assess"
+sglang,D7.1,UNK,LOW,runs_v2/sglang/probes/D7.1.txt,subjective doc read - human-judged
+sglang,D7.2,UNK,LOW,runs_v2/sglang/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+tgi,D1.1,UNK,LOW,runs_v2/tgi/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+tgi,D1.2,UNK,LOW,runs_v2/tgi/probes/D1.2.txt,depends on docs language - human-judged at review
+tgi,D2.1,UNK,LOW,runs_v2/tgi/probes/D2.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+tgi,D2.2,UNK,LOW,runs_v2/tgi/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+tgi,D2.3,UNK,LOW,runs_v2/tgi/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+tgi,D3.1,UNK,LOW,runs_v2/tgi/probes/D3.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+tgi,D3.2,UNK,LOW,runs_v2/tgi/probes/D3.2.txt,no HTTP status line in transcript
+tgi,D3.3,UNK,LOW,runs_v2/tgi/probes/D3.3.txt,no HTTP status line in transcript
+tgi,D3.4,UNK,LOW,runs_v2/tgi/probes/D3.4.txt,no HTTP status line in transcript
+tgi,D4.1,UNK,LOW,runs_v2/tgi/probes/D4.1.txt,curl exit 56 (connection refused/reset — service likely down/unhealthy)
+tgi,D4.2,UNK,LOW,runs_v2/tgi/probes/D4.2.txt,"server served only 0 genuine HTTP responses (200 failed/000) - server down/unhealthy, cannot assess throttling"
+tgi,D5.1,UNK,LOW,runs_v2/tgi/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+tgi,D5.2,UNK,LOW,runs_v2/tgi/probes/D5.2.txt,no status
+tgi,D5.3,INSECURE,HIGH,runs_v2/tgi/probes/D5.3.txt,container runs as root / unset User
+tgi,D6.1,UNK,LOW,runs_v2/tgi/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+tgi,D6.2,UNK,LOW,runs_v2/tgi/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (curl exit 56) - logging surface never exercised, cannot assess"
+tgi,D7.1,UNK,LOW,runs_v2/tgi/probes/D7.1.txt,subjective doc read - human-judged
+tgi,D7.2,UNK,LOW,runs_v2/tgi/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+tgwui,D1.1,UNK,LOW,runs_v2/tgwui/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+tgwui,D1.2,UNK,LOW,runs_v2/tgwui/probes/D1.2.txt,depends on docs language - human-judged at review
+tgwui,D2.1,UNK,LOW,runs_v2/tgwui/probes/D2.1.txt,unexpected status 422
+tgwui,D2.2,UNK,LOW,runs_v2/tgwui/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+tgwui,D2.3,UNK,LOW,runs_v2/tgwui/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+tgwui,D3.1,INSECURE,HIGH,runs_v2/tgwui/probes/D3.1.txt,200 OK without auth header
+tgwui,D3.2,UNK,LOW,runs_v2/tgwui/probes/D3.2.txt,unexpected status 422
+tgwui,D3.3,UNK,LOW,runs_v2/tgwui/probes/D3.3.txt,no HTTP status line in transcript
+tgwui,D3.4,UNK,LOW,runs_v2/tgwui/probes/D3.4.txt,405 method-not-allowed: revisit endpoint method
+tgwui,D4.1,UNK,LOW,runs_v2/tgwui/probes/D4.1.txt,unexpected status 422
+tgwui,D4.2,INSECURE,HIGH,runs_v2/tgwui/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+tgwui,D5.1,UNK,LOW,runs_v2/tgwui/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+tgwui,D5.2,UNK,LOW,runs_v2/tgwui/probes/D5.2.txt,status 405 - inspect manually
+tgwui,D5.3,INSECURE,HIGH,runs_v2/tgwui/probes/D5.3.txt,container runs as root / unset User
+tgwui,D6.1,UNK,LOW,runs_v2/tgwui/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+tgwui,D6.2,UNK,LOW,runs_v2/tgwui/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 422) - logging surface never exercised, cannot assess"
+tgwui,D7.1,UNK,LOW,runs_v2/tgwui/probes/D7.1.txt,subjective doc read - human-judged
+tgwui,D7.2,UNK,LOW,runs_v2/tgwui/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step
+vllm,D1.1,UNK,LOW,runs_v2/vllm/probes/D1.1.txt,bind addr is read from runs/<fw>/config_snapshot/ - manual check
+vllm,D1.2,UNK,LOW,runs_v2/vllm/probes/D1.2.txt,depends on docs language - human-judged at review
+vllm,D2.1,UNK,LOW,runs_v2/vllm/probes/D2.1.txt,unexpected status 400
+vllm,D2.2,UNK,LOW,runs_v2/vllm/probes/D2.2.txt,doc-derived: does native auth exist? human-judged
+vllm,D2.3,UNK,LOW,runs_v2/vllm/probes/D2.3.txt,compare D2.1 vs D3.x results post-hoc
+vllm,D3.1,INSECURE,HIGH,runs_v2/vllm/probes/D3.1.txt,200 OK without auth header
+vllm,D3.2,UNK,LOW,runs_v2/vllm/probes/D3.2.txt,no HTTP status line in transcript
+vllm,D3.3,UNK,LOW,runs_v2/vllm/probes/D3.3.txt,no HTTP status line in transcript
+vllm,D3.4,UNK,LOW,runs_v2/vllm/probes/D3.4.txt,no HTTP status line in transcript
+vllm,D4.1,UNK,LOW,runs_v2/vllm/probes/D4.1.txt,unexpected status 400
+vllm,D4.2,INSECURE,HIGH,runs_v2/vllm/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled
+vllm,D5.1,UNK,LOW,runs_v2/vllm/probes/D5.1.txt,"template/tool-exec exposure: subjective, framework-specific - human-judged"
+vllm,D5.2,SECURE,HIGH,runs_v2/vllm/probes/D5.2.txt,404 - path traversal rejected
+vllm,D5.3,INSECURE,HIGH,runs_v2/vllm/probes/D5.3.txt,container runs as root / unset User
+vllm,D6.1,UNK,LOW,runs_v2/vllm/probes/D6.1.txt,telemetry inspection requires tcpdump + manual analysis - human-judged
+vllm,D6.2,UNK,LOW,runs_v2/vllm/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (curl exit 28) - logging surface never exercised, cannot assess"
+vllm,D7.1,UNK,LOW,runs_v2/vllm/probes/D7.1.txt,subjective doc read - human-judged
+vllm,D7.2,UNK,LOW,runs_v2/vllm/probes/D7.2.txt,derived from D1-D6 + docs after the fact - computed in matrix step

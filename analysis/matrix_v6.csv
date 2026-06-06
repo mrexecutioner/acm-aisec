@@ -1,0 +1,24 @@
+framework,item_id,score,confidence,evidence_file,notes
+ollama,D5.2,N_A,HIGH,runs_v6/ollama/probes/D5.2.txt,no unauthenticated file-path/read endpoint exposed by default
+ollama,D6.1,INSECURE,HIGH,runs_v6/ollama/probes/D6.1.txt,phones home to ollama.com (version/update check) at startup by default; no model pull (weights pre-staged) — SNI-confirmed
+ollama,D6.2,SECURE,HIGH,runs_v6/ollama/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir
+vllm,D5.2,N_A,HIGH,runs_v6/vllm/probes/D5.2.txt,no unauthenticated file-path/read endpoint exposed by default
+vllm,D6.1,INSECURE,HIGH,runs_v6/vllm/probes/D6.1.txt,sends usage stats to stats.vllm.ai by default (SNI-confirmed); also contacts huggingface.co for model metadata
+vllm,D6.2,SECURE,HIGH,runs_v6/vllm/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir
+llamacpp,D5.2,SECURE,HIGH,runs_v6/llamacpp/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized)
+llamacpp,D6.1,SECURE,HIGH,runs_v6/llamacpp/probes/D6.1.txt,no external (non-private) egress observed during boot+inference; capture covered both
+llamacpp,D6.2,SECURE,HIGH,runs_v6/llamacpp/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir
+localai,D5.2,SECURE,HIGH,runs_v6/localai/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized)
+localai,D6.1,UNK,LOW,runs_v6/localai/probes/D6.1.txt,startup egress to 185.199.111.133 (GitHub Pages range) + 44.215.21.114 (AWS); no TLS SNI captured to confirm purpose — likely gallery/backend index fetch; HUMAN: confirm telemetry vs benign
+localai,D6.2,INSECURE,HIGH,runs_v6/localai/probes/D6.2.txt,sentinel prompt text found in plaintext log/data dir
+tgwui,D5.2,SECURE,HIGH,runs_v6/tgwui/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized)
+tgwui,D6.1,UNK,LOW,runs_v6/tgwui/probes/D6.1.txt,startup egress to github.com (SNI-confirmed) with no model/inference served — likely update/extension check (phone-home) but purpose unconfirmed; HUMAN: confirm
+tgwui,D6.2,UNK,LOW,runs_v6/tgwui/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 500) - logging surface never exercised, cannot assess"
+sglang,D5.2,SECURE,HIGH,runs_v6/sglang/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized)
+sglang,D6.1,UNK,LOW,runs_v6/sglang/probes/D6.1.txt,"only external egress = huggingface.co (model source/metadata on load, SNI-confirmed); no analytics endpoint observed; re-contacts HF on boot despite pre-staged weights; HUMAN: judge"
+sglang,D6.2,SECURE,HIGH,runs_v6/sglang/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir
+tgi,D5.2,N_A,HIGH,runs_v6/tgi/probes/D5.2.txt,no unauthenticated file-path/read endpoint exposed by default
+tgi,D6.1,UNK,LOW,runs_v6/tgi/probes/D6.1.txt,"only external egress = huggingface.co (model source/metadata, SNI-confirmed); no analytics endpoint observed; HUMAN: judge"
+tgi,D6.2,SECURE,HIGH,runs_v6/tgi/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir
+tgwui,D2.1_modelloaded,INSECURE,HIGH,runs_v6/tgwui/probes/D2.1_modelloaded.txt,NON-DEFAULT (model loaded via API): serves inference with no auth (200); consistent with D3.1. NOT a default-state measurement.
+tgwui,D4.1_modelloaded,INSECURE,HIGH,runs_v6/tgwui/probes/D4.1_modelloaded.txt,NON-DEFAULT (model loaded via API): serves inference with no auth (200); consistent with D3.1. NOT a default-state measurement.

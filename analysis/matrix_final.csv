@@ -1,0 +1,129 @@
+framework,item_id,score,confidence,evidence_file,notes,source_run
+ollama,D1.1,INSECURE,HIGH,runs_v7/ollama/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+ollama,D1.2,INSECURE,HIGH,findings_v8/ollama/doc_evidence.md,instructs OLLAMA_HOST=0.0.0.0 to expose with no exposure-risk warning | src: docs.ollama.com/faq (2026-06-02),runs_v8
+ollama,D2.1,INSECURE,HIGH,runs_v2/ollama/probes/D2.1.txt,200 OK without auth header,runs_v2
+ollama,D2.2,WARNS,HIGH,findings_v8/ollama/doc_evidence.md,NO native auth; FAQ points only to reverse proxy (Nginx)/tunnels | src: docs.ollama.com/faq (2026-06-02),runs_v8
+ollama,D2.3,N_A,HIGH,runs_v9/ollama/probes/routes.txt,"default has NO auth on any endpoint (inference + management all unauth 2xx; no api-key/admin-key set, cf D2.2) — no per-endpoint authz to evaluate (2026-06-02)",runs_v9
+ollama,D3.1,INSECURE,HIGH,runs_v2/ollama/probes/D3.1.txt,200 OK without auth header,runs_v2
+ollama,D3.2,INSECURE,HIGH,runs_v2/ollama/probes/D3.2.txt,200 OK without auth header,runs_v2
+ollama,D3.3,INSECURE,HIGH,runs_v9/ollama/probes/D3.3.txt,"POST /api/push reachable UNAUTH (200); executed push workflow (retrieving manifest), failed only on the missing test model — a real local model is pushable unauth (2026-06-02)",runs_v9
+ollama,D3.4,N_A,HIGH,runs_v2/ollama/probes/D3.4.txt,404 - endpoint absent in this framework,runs_v2
+ollama,D4.1,UNK,LOW,runs_v2/ollama/probes/D4.1.txt,curl exit 28 (request timed out — possible cold model load; cross-check D4.1),runs_v2
+ollama,D4.2,INSECURE,HIGH,runs_v2/ollama/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v2
+ollama,D5.1,SECURE,LOW,runs_v7/ollama/probes/D5.1.txt,user 'template' param is Go text/template — sandboxed (no code/file/net exec); benign probe ({{print 7777777}}) showed NO server-side code execution,runs_v7
+ollama,D5.2,N_A,HIGH,runs_v6/ollama/probes/D5.2.txt,no unauthenticated file-path/read endpoint exposed by default,runs_v6
+ollama,D5.3,INSECURE,HIGH,runs_v2/ollama/probes/D5.3.txt,container runs as root / unset User,runs_v2
+ollama,D6.1,INSECURE,HIGH,runs_v6/ollama/probes/D6.1.txt,phones home to ollama.com (version/update check) at startup by default; no model pull (weights pre-staged) — SNI-confirmed,runs_v6
+ollama,D6.2,SECURE,HIGH,runs_v6/ollama/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir,runs_v6
+ollama,D7.1,INSECURE,HIGH,findings_v8/ollama/doc_evidence.md,"FAQ gives OLLAMA_HOST config with no security caveat, no auth mention | src: docs.ollama.com/faq (2026-06-02)",runs_v8
+ollama,D7.2,INSECURE,HIGH,runs_v7/ollama/probes/D1.1.txt,"gap score = 9: 9 D1-D6 items INSECURE by default despite a secure option (D1.1, D1.2, D2.1, D3.1, D3.2, D3.3, D4.2, D5.3, D6.1) [recomputed in v9 follow-up after Group-1 D3.3/D3.4 resolutions; was 8]",runs_v9
+vllm,D1.1,INSECURE,HIGH,runs_v7/vllm/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+vllm,D1.2,WARNS,HIGH,findings_v8/vllm/doc_evidence.md,Security page warns all-interface binding (TCPStore) is insecure by default + recommends firewall/isolated network | src: docs.vllm.ai/en/latest/usage/security.html (2026-06-02),runs_v8
+vllm,D2.1,INSECURE,HIGH,runs_v4/vllm/probes/D2.1.txt,200 OK without auth header,runs_v4
+vllm,D2.2,WARNS,HIGH,findings_v8/vllm/doc_evidence.md,"native --api-key / VLLM_API_KEY exists but OFF by default; docs caution it protects only /v1, other endpoints stay unauth | src: docs.vllm.ai/en/latest/usage/security.html (2026-06-02)",runs_v8
+vllm,D2.3,N_A,HIGH,runs_v9/vllm/probes/routes.txt,"default has NO auth on any endpoint (inference + management all unauth 2xx; no api-key/admin-key set, cf D2.2) — no per-endpoint authz to evaluate (2026-06-02)",runs_v9
+vllm,D3.1,INSECURE,HIGH,runs_v2/vllm/probes/D3.1.txt,200 OK without auth header,runs_v2
+vllm,D3.2,N_A,HIGH,runs_v7/vllm/probes/D1.1.txt,no model pull/load endpoint by default (model fixed at launch),runs_v7
+vllm,D3.3,N_A,HIGH,runs_v9/vllm/probes/routes.txt,no push/export endpoint in the live OpenAPI route list (2026-06-02),runs_v9
+vllm,D3.4,N_A,HIGH,runs_v9/vllm/probes/routes.txt,"no model delete/unload in the live OpenAPI route list (model immutable at runtime; /scale_elastic_ep is EP-scaling infra, not model-mutate) (2026-06-02)",runs_v9
+vllm,D4.1,INSECURE,HIGH,runs_v4/vllm/probes/D4.1.txt,200 OK without auth header,runs_v4
+vllm,D4.2,INSECURE,HIGH,runs_v2/vllm/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v2
+vllm,D5.1,SECURE,LOW,runs_v7/vllm/probes/D5.1.txt,"request chat_template field not honored as a render surface (400, validation error); benign SSTI not evaluated",runs_v7
+vllm,D5.2,N_A,HIGH,runs_v6/vllm/probes/D5.2.txt,no unauthenticated file-path/read endpoint exposed by default,runs_v6
+vllm,D5.3,INSECURE,HIGH,runs_v2/vllm/probes/D5.3.txt,container runs as root / unset User,runs_v2
+vllm,D6.1,INSECURE,HIGH,runs_v6/vllm/probes/D6.1.txt,sends usage stats to stats.vllm.ai by default (SNI-confirmed); also contacts huggingface.co for model metadata,runs_v6
+vllm,D6.2,SECURE,HIGH,runs_v6/vllm/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir,runs_v6
+vllm,D7.1,WARNS,HIGH,findings_v8/vllm/doc_evidence.md,"dedicated Security page warns 'insecure by default' + isolated-network/firewall + --api-key caveat, but the serving quickstart itself does not warn (separate page) | src: docs.vllm.ai/en/latest/usage/security.html (2026-06-02)",runs_v8
+vllm,D7.2,INSECURE,HIGH,runs_v7/vllm/probes/D1.1.txt,"gap score = 7: 7 D1-D6 items INSECURE by default despite a secure option (D1.1, D2.1, D3.1, D4.1, D4.2, D5.3, D6.1)",runs_v8
+llamacpp,D1.1,INSECURE,HIGH,runs_v7/llamacpp/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+llamacpp,D1.2,WARNS,HIGH,findings_v8/llamacpp/doc_evidence.md,docs warn via SECURITY.md ('Untrusted environments or networks': do not expose llama-server to untrusted networks) — separate page off the quickstart | src: github.com/ggml-org/llama.cpp SECURITY.md (2026-06-02),runs_v8
+llamacpp,D2.1,INSECURE,HIGH,runs_v5/llamacpp/probes/D2.1.txt,200 OK without auth header,runs_v5
+llamacpp,D2.2,WARNS,HIGH,findings_v8/llamacpp/doc_evidence.md,native --api-key exists (default: none/off) | src: github.com/ggml-org/llama.cpp tools/server/README.md (2026-06-02),runs_v8
+llamacpp,D2.3,N_A,HIGH,runs_v9/llamacpp/probes/routes.txt,"default has NO auth on any endpoint (inference + management all unauth 2xx; no api-key/admin-key set, cf D2.2) — no per-endpoint authz to evaluate (2026-06-02)",runs_v9
+llamacpp,D3.1,INSECURE,HIGH,runs_v2/llamacpp/probes/D3.1.txt,200 OK without auth header,runs_v2
+llamacpp,D3.2,N_A,HIGH,runs_v7/llamacpp/probes/D1.1.txt,no model pull/load endpoint by default,runs_v7
+llamacpp,D3.3,N_A,HIGH,runs_v9/llamacpp/probes/routes.txt,no push/export endpoint in the documented API / server route set (no live OpenAPI dump for this server; documented-API basis) (2026-06-02),runs_v9
+llamacpp,D3.4,N_A,HIGH,runs_v9/llamacpp/probes/D3.4.txt,no model-delete; /slots erase/mutate DISABLED by default (501 'does not support slots action' without --slot-save-path); /slots is read-only list (2026-06-02),runs_v9
+llamacpp,D4.1,INSECURE,HIGH,runs_v5/llamacpp/probes/D4.1.txt,200 OK without auth header,runs_v5
+llamacpp,D4.2,INSECURE,HIGH,runs_v2/llamacpp/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v2
+llamacpp,D5.1,SECURE,LOW,runs_v7/llamacpp/probes/D5.1.txt,request chat_template ignored/rejected (400); benign SSTI not evaluated server-side,runs_v7
+llamacpp,D5.2,SECURE,HIGH,runs_v6/llamacpp/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized),runs_v6
+llamacpp,D5.3,INSECURE,HIGH,runs_v2/llamacpp/probes/D5.3.txt,container runs as root / unset User,runs_v2
+llamacpp,D6.1,SECURE,HIGH,runs_v6/llamacpp/probes/D6.1.txt,no external (non-private) egress observed during boot+inference; capture covered both,runs_v6
+llamacpp,D6.2,SECURE,HIGH,runs_v6/llamacpp/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir,runs_v6
+llamacpp,D7.1,WARNS,HIGH,findings_v8/llamacpp/doc_evidence.md,docs warn via SECURITY.md ('Untrusted environments or networks': do not expose llama-server to untrusted networks) — separate page off the quickstart | src: github.com/ggml-org/llama.cpp SECURITY.md (2026-06-02),runs_v8
+llamacpp,D7.2,INSECURE,HIGH,runs_v7/llamacpp/probes/D1.1.txt,"gap score = 6: 6 D1-D6 items INSECURE by default despite a secure option (D1.1, D2.1, D3.1, D4.1, D4.2, D5.3) [v8 audit: D1.2 -> WARNS dropped gap 7->6]",runs_v8
+localai,D1.1,INSECURE,HIGH,runs_v7/localai/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+localai,D1.2,SECURE,HIGH,findings_v8/localai/doc_evidence.md,'Security considerations' tip explicitly warns about remote exposure and to protect endpoints | src: localai.io/basics/getting_started/ (2026-06-02),runs_v8
+localai,D2.1,INSECURE,HIGH,runs_v4/localai/probes/D2.1.txt,200 OK without auth header,runs_v4
+localai,D2.2,WARNS,HIGH,findings_v8/localai/doc_evidence.md,native LOCALAI_API_KEY (+ LOCALAI_AUTH) exist but OFF by default | src: localai.io/basics/getting_started/ (2026-06-02),runs_v8
+localai,D2.3,N_A,HIGH,runs_v9/localai/probes/routes.txt,"default has NO auth on any endpoint (inference + management all unauth 2xx; no api-key/admin-key set, cf D2.2) — no per-endpoint authz to evaluate (2026-06-02)",runs_v9
+localai,D3.1,INSECURE,HIGH,runs_v3/localai/probes/D3.1.txt,200 OK without auth header,runs_v3
+localai,D3.2,INSECURE,HIGH,runs_v3/localai/probes/D3.2.txt,200 OK without auth header,runs_v3
+localai,D3.3,N_A,HIGH,runs_v9/localai/probes/routes.txt,no push/export endpoint in the documented API / server route set (no live OpenAPI dump for this server; documented-API basis) (2026-06-02),runs_v9
+localai,D3.4,INSECURE,HIGH,runs_v9/localai/probes/D3.4.txt,"POST /models/delete/{name} reachable UNAUTH (200), accepted as a job (returned job UUID) — no auth gate (2026-06-02)",runs_v9
+localai,D4.1,INSECURE,HIGH,runs_v4/localai/probes/D4.1.txt,200 OK without auth header,runs_v4
+localai,D4.2,INSECURE,HIGH,runs_v3/localai/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v3
+localai,D5.1,SECURE,LOW,runs_v7/localai/probes/D5.1.txt,request chat_template not rendered (404); benign SSTI not evaluated,runs_v7
+localai,D5.2,SECURE,HIGH,runs_v6/localai/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized),runs_v6
+localai,D5.3,INSECURE,HIGH,runs_v3/localai/probes/D5.3.txt,container runs as root / unset User,runs_v3
+localai,D6.1,UNK,LOW,runs_v7/localai/probes/D6.1_content.txt,"B1: external egress to GitHub-Pages range (gallery index host) + AWS; logs show stats are in-memory/no-auth/single-user (NOT exfiltrated); TLS content not inspected — leaning benign gallery fetch but unconfirmed, honest UNK",runs_v7
+localai,D6.2,INSECURE,HIGH,runs_v6/localai/probes/D6.2.txt,sentinel prompt text found in plaintext log/data dir,runs_v6
+localai,D7.1,SECURE,HIGH,findings_v8/localai/doc_evidence.md,getting-started 'Security considerations' tip warns 'protect the API endpoints adequately' and shows LOCALAI_API_KEY hardening on the quickstart page itself | src: localai.io/basics/getting_started/ (2026-06-02),runs_v8
+localai,D7.2,INSECURE,HIGH,runs_v7/localai/probes/D1.1.txt,"gap score = 9: 9 D1-D6 items INSECURE by default despite a secure option (D1.1, D2.1, D3.1, D3.2, D3.4, D4.1, D4.2, D5.3, D6.2) [recomputed in v9 follow-up after Group-1 D3.3/D3.4 resolutions; was 8]",runs_v9
+tgwui,D1.1,INSECURE,HIGH,runs_v7/tgwui/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+tgwui,D1.2,INSECURE,HIGH,findings_v8/tgwui/doc_evidence.md,"--listen documented as 'reachable from local network', no caveat | src: github.com/oobabooga/text-generation-webui README.md (2026-06-02)",runs_v8
+tgwui,D2.1,UNK,LOW,runs_v5/tgwui/probes/D2.1.txt,unexpected status 500,runs_v5
+tgwui,D2.2,WARNS,HIGH,findings_v8/tgwui/doc_evidence.md,native --api-key/--admin-key (API) + --gradio-auth (UI) exist but OFF by default | src: github.com/oobabooga/text-generation-webui README.md (2026-06-02),runs_v8
+tgwui,D2.3,N_A,HIGH,runs_v9/tgwui/probes/routes.txt,"default has NO auth on any endpoint (inference + management all unauth 2xx; no api-key/admin-key set, cf D2.2) — no per-endpoint authz to evaluate (2026-06-02)",runs_v9
+tgwui,D3.1,INSECURE,HIGH,runs_v2/tgwui/probes/D3.1.txt,200 OK without auth header,runs_v2
+tgwui,D3.2,INSECURE,HIGH,runs_v6/tgwui/probes/D2.1_modelloaded.txt; runs_v7/tgwui/probes/D3.2.txt,unauth model-load endpoint /v1/internal/model/load reachable w/o auth — direct load probes return 422 (v2) / 500 (v7) and never 401/403; model loaded via this endpoint unauth then served 200 inference (runs_v6 D2.1_modelloaded) — load-call 200 not separately captured,runs_v7
+tgwui,D3.3,N_A,HIGH,runs_v9/tgwui/probes/routes.txt,no push/export endpoint in the live OpenAPI route list (2026-06-02),runs_v9
+tgwui,D3.4,INSECURE,HIGH,runs_v9/tgwui/probes/D3.4.txt,POST /v1/internal/model/unload reachable UNAUTH (200 'OK') — unauthenticated model-unload/mutate (2026-06-02),runs_v9
+tgwui,D4.1,UNK,LOW,runs_v5/tgwui/probes/D4.1.txt,unexpected status 500,runs_v5
+tgwui,D4.2,INSECURE,HIGH,runs_v2/tgwui/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v2
+tgwui,D5.1,SECURE,LOW,runs_v7/tgwui/probes/D5.1.txt,"request chat_template not rendered (500, no model); benign SSTI not evaluated",runs_v7
+tgwui,D5.2,SECURE,HIGH,runs_v6/tgwui/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized),runs_v6
+tgwui,D5.3,INSECURE,HIGH,runs_v2/tgwui/probes/D5.3.txt,container runs as root / unset User,runs_v2
+tgwui,D6.1,UNK,LOW,runs_v7/tgwui/probes/D6.1_content.txt,"B1: startup egress to github.com (v6 SNI) but container logs did not reveal the request purpose; TLS-opaque; likely update/extension check, not confirmed — honest UNK",runs_v7
+tgwui,D6.2,UNK,LOW,runs_v6/tgwui/probes/D6.2.txt,"sentinel NOT logged, but seeding inference did not return 2xx (HTTP 500) - logging surface never exercised, cannot assess",runs_v6
+tgwui,D7.1,INSECURE,HIGH,findings_v8/tgwui/doc_evidence.md,README documents --listen ('reachable from local network') with no security caveat | src: github.com/oobabooga/text-generation-webui README.md (2026-06-02),runs_v8
+tgwui,D7.2,INSECURE,HIGH,runs_v7/tgwui/probes/D1.1.txt,"gap score = 7: 7 D1-D6 items INSECURE by default despite a secure option (D1.1, D1.2, D3.1, D3.2, D3.4, D4.2, D5.3) [recomputed in v9 follow-up after Group-1 D3.3/D3.4 resolutions; was 6]",runs_v9
+sglang,D1.1,INSECURE,HIGH,runs_v7/sglang/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+sglang,D1.2,INSECURE,HIGH,findings_v8/sglang/doc_evidence.md,code default --host=127.0.0.1 (loopback) but docs/example bind 0.0.0.0 with no exposure caveat | src: docs.sglang.io/advanced_features/server_arguments.html (2026-06-02),runs_v8
+sglang,D2.1,INSECURE,HIGH,runs_v4/sglang/probes/D2.1.txt,200 OK without auth header,runs_v4
+sglang,D2.2,WARNS,HIGH,findings_v8/sglang/doc_evidence.md,"native --api-key (+ --admin-api-key) exists, default None/off | src: docs.sglang.io/advanced_features/server_arguments.html (2026-06-02)",runs_v8
+sglang,D2.3,WARNS,LOW,runs_v9/sglang/probes/D3.4.txt,OBSERVED per-endpoint auth difference: /hicache/storage-backend refuses without --admin-api-key (400) while /flush_cache + inference + update_weights are open (200 unauth) — a per-endpoint authz tier EXISTS but is incomplete (sensitive mutates ungated) and admin-key is off by default [judgment call — flag] (2026-06-02),runs_v9
+sglang,D3.1,INSECURE,HIGH,runs_v2/sglang/probes/D3.1.txt,200 OK without auth header,runs_v2
+sglang,D3.2,INSECURE,LOW,runs_v7/sglang/probes/D3.2.txt,unauth /update_weights_from_disk reachable (HTTP 400 on a nonexistent path = no 401/403 auth gate; successful unauth load not confirmed — flag),runs_v7
+sglang,D3.3,N_A,HIGH,runs_v9/sglang/probes/routes.txt,no push/export endpoint in the live OpenAPI route list (2026-06-02),runs_v9
+sglang,D3.4,INSECURE,HIGH,runs_v9/sglang/probes/D3.4.txt,"POST /flush_cache reachable UNAUTH (200 'Cache flushed') — unauthenticated admin mutate (update_weights_from_*, load_lora, release_memory similarly unauth) (2026-06-02)",runs_v9
+sglang,D4.1,INSECURE,HIGH,runs_v4/sglang/probes/D4.1.txt,200 OK without auth header,runs_v4
+sglang,D4.2,INSECURE,HIGH,runs_v2/sglang/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v2
+sglang,D5.1,SECURE,LOW,runs_v7/sglang/probes/D5.1.txt,"request chat_template field ignored (200 normal completion, no '7777777' render); benign SSTI not evaluated",runs_v7
+sglang,D5.2,SECURE,HIGH,runs_v6/sglang/probes/D5.2.txt,traversal attempted on a file-path endpoint; no file content leaked (rejected/sanitized),runs_v6
+sglang,D5.3,INSECURE,HIGH,runs_v2/sglang/probes/D5.3.txt,container runs as root / unset User,runs_v2
+sglang,D6.1,SECURE,HIGH,runs_v7/sglang/probes/D6.1_content.txt,"B1 content (logs): only external egress = HF model/tokenizer fetch (Qwen2.5-0.5B); enable_metrics=False, traces->localhost; no telemetry — log-confirmed benign",runs_v7
+sglang,D6.2,SECURE,HIGH,runs_v6/sglang/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir,runs_v6
+sglang,D7.1,INSECURE,HIGH,findings_v8/sglang/doc_evidence.md,server-arguments page is a pure reference; no security warning; example binds 0.0.0.0 w/o caveat | src: docs.sglang.io/advanced_features/server_arguments.html (2026-06-02),runs_v8
+sglang,D7.2,INSECURE,HIGH,runs_v7/sglang/probes/D1.1.txt,"gap score = 9: 9 D1-D6 items INSECURE by default despite a secure option (D1.1, D1.2, D2.1, D3.1, D3.2, D3.4, D4.1, D4.2, D5.3) [recomputed in v9 follow-up after Group-1 D3.3/D3.4 resolutions; was 8]",runs_v9
+tgi,D1.1,INSECURE,HIGH,runs_v7/tgi/probes/D1.1.txt,binds 0.0.0.0/:: (all interfaces) by default; in-container /proc/net/tcp listener,runs_v7
+tgi,D1.2,INSECURE,HIGH,findings_v8/tgi/doc_evidence.md,quicktour -p 8080:80 publishes the port; --hostname default 0.0.0.0; no exposure caveat | src: huggingface.co/docs/text-generation-inference quicktour + reference/launcher (2026-06-02),runs_v8
+tgi,D2.1,INSECURE,HIGH,runs_v4/tgi/probes/D2.1.txt,200 OK without auth header,runs_v4
+tgi,D2.2,WARNS,HIGH,findings_v8/tgi/doc_evidence.md,native --api-key (env API_KEY) EXISTS but OFF by default [CORRECTION: v7 prior wrongly said 'no native auth'] | src: huggingface.co/docs/text-generation-inference quicktour + reference/launcher (2026-06-02),runs_v8
+tgi,D2.3,N_A,HIGH,runs_v9/tgi/probes/routes.txt,"default has NO auth on any endpoint (inference + management all unauth 2xx; no api-key/admin-key set, cf D2.2) — no per-endpoint authz to evaluate (2026-06-02)",runs_v9
+tgi,D3.1,INSECURE,HIGH,runs_v4/tgi/probes/D3.1.txt,200 OK without auth header,runs_v4
+tgi,D3.2,N_A,HIGH,runs_v7/tgi/probes/D1.1.txt,no model pull/load endpoint by default (model fixed via --model-id),runs_v7
+tgi,D3.3,N_A,HIGH,runs_v9/tgi/probes/routes.txt,no push/export endpoint in the documented API / server route set (no live OpenAPI dump for this server; documented-API basis) (2026-06-02),runs_v9
+tgi,D3.4,N_A,HIGH,runs_v9/tgi/probes/routes.txt,"no delete/mutate endpoint in the documented API (model fixed via --model-id; routes: /generate, /v1/*, /info, /health, /metrics) (2026-06-02)",runs_v9
+tgi,D4.1,INSECURE,HIGH,runs_v4/tgi/probes/D4.1.txt,200 OK without auth header,runs_v4
+tgi,D4.2,INSECURE,HIGH,runs_v4/tgi/probes/D4.2.txt,0/100 throttled; 100 successful 2xx served unthrottled,runs_v4
+tgi,D5.1,SECURE,LOW,runs_v7/tgi/probes/D5.1.txt,request chat_template rejected (422); benign SSTI not evaluated server-side,runs_v7
+tgi,D5.2,N_A,HIGH,runs_v6/tgi/probes/D5.2.txt,no unauthenticated file-path/read endpoint exposed by default,runs_v6
+tgi,D5.3,INSECURE,HIGH,runs_v4/tgi/probes/D5.3.txt,container runs as root / unset User,runs_v4
+tgi,D6.1,INSECURE,LOW,runs_v7/tgi/probes/D6.1_content.txt,B1: launcher config shows usage_stats=On by default (HF usage telemetry); HF egress = gpt2 model download + usage-stats enabled. Default-on telemetry feature confirmed; exact stats POST not isolated from model-download traffic — HUMAN: confirm payload,runs_v7
+tgi,D6.2,SECURE,HIGH,runs_v6/tgi/probes/D6.2.txt,seeding inference returned 2xx but sentinel absent from data dir,runs_v6
+tgi,D7.1,INSECURE,HIGH,findings_v8/tgi/doc_evidence.md,"quicktour: bare 'docker run -p 8080:80 --model-id', no security/auth/telemetry caveat | src: huggingface.co/docs/text-generation-inference quicktour + reference/launcher (2026-06-02)",runs_v8
+tgi,D7.2,INSECURE,HIGH,runs_v7/tgi/probes/D1.1.txt,"gap score = 8: 8 D1-D6 items INSECURE by default despite a secure option (D1.1, D1.2, D2.1, D3.1, D4.1, D4.2, D5.3, D6.1) [v8 stale-fix: v7 value did not reflect the Part-B D6.1 change]",runs_v8
+tgwui,D2.1_modelloaded,INSECURE,HIGH,runs_v6/tgwui/probes/D2.1_modelloaded.txt,NON-DEFAULT (model loaded via API): serves inference with no auth (200); consistent with D3.1; does NOT replace tgwui default D2.1/D4.1 (UNK),runs_v6
+tgwui,D4.1_modelloaded,INSECURE,HIGH,runs_v6/tgwui/probes/D4.1_modelloaded.txt,NON-DEFAULT (model loaded via API): serves inference with no auth (200); consistent with D3.1; does NOT replace tgwui default D2.1/D4.1 (UNK),runs_v6
