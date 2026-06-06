@@ -1,0 +1,9 @@
+# D3.2 - unauth pull/load probe
+# url: http://127.0.0.1:30000/update_weights_from_disk  payload: {"model_path":"/tmp/nonexistent"}
+HTTP/1.1 400 Bad Request
+date: Mon, 01 Jun 2026 21:00:26 GMT
+server: uvicorn
+content-length: 126
+content-type: application/json
+
+{"success":false,"message":"Failed to get weights iterator: /tmp/nonexistent (repository not found).","num_paused_requests":0}

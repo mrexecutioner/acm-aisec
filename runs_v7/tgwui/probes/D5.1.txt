@@ -1,0 +1,12 @@
+# D5.1 benign template/code-exec probe (v7 B2), NO destructive payloads
+# timestamp_utc: 2026-06-01T21:16:30Z
+# sentinel: Jinja {{7*'7'}} -> 7777777 iff server renders a user-supplied template
+## chat_template request-param SSTI probe (OpenAI-style)
+HTTP/1.1 500 Internal Server Error
+date: Mon, 01 Jun 2026 21:16:30 GMT
+server: uvicorn
+content-length: 21
+content-type: text/plain; charset=utf-8
+
+Internal Server Error
+# (score: 7777777 present from template render -> INSECURE; param ignored/rejected/no such surface -> SECURE/N_A)

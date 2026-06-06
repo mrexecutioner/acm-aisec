@@ -1,0 +1,12 @@
+# D5.1 benign template/code-exec probe (v7 B2), NO destructive payloads
+# timestamp_utc: 2026-06-01T21:20:52Z
+# sentinel: Jinja {{7*'7'}} -> 7777777 iff server renders a user-supplied template
+## chat_template request-param SSTI probe (OpenAI-style)
+HTTP/1.1 200 OK
+date: Mon, 01 Jun 2026 21:20:51 GMT
+server: uvicorn
+content-length: 446
+content-type: application/json
+
+{"id":"5f15d7a0d34641dd9641b568aad3a443","object":"chat.completion","created":1780348852,"model":"x","choices":[{"index":0,"message":{"role":"assistant","content":"Hello! How can","reasoning_content":null,"tool_calls":null},"logprobs":null,"finish_reason":"length","matched_stop":null}],"usage":{"prompt_tokens":30,"total_tokens":34,"completion_tokens":4,"prompt_tokens_details":null,"reasoning_tokens":0},"metadata":{"weight_version":"default"}}
+# (score: 7777777 present from template render -> INSECURE; param ignored/rejected/no such surface -> SECURE/N_A)

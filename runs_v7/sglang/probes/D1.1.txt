@@ -1,0 +1,19 @@
+# D1.1 - in-container listening sockets (default bind addr)
+# timestamp_utc: 2026-06-01T21:00:26Z  service port: 30000
+# --- ss -tlnp (if available) ---
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 172.18.0.2:32897        0.0.0.0:*               LISTEN      102/sglang::schedul 
+tcp        0      0 172.18.0.2:39491        0.0.0.0:*               LISTEN      102/sglang::schedul 
+tcp        0      0 127.0.0.11:39835        0.0.0.0:*               LISTEN      -                   
+tcp        0      0 172.18.0.2:44979        0.0.0.0:*               LISTEN      102/sglang::schedul 
+tcp        0      0 0.0.0.0:30000           0.0.0.0:*               LISTEN      1/python3           
+tcp6       0      0 :::37139                :::*                    LISTEN      102/sglang::schedul 
+# --- /proc/net/tcp + tcp6 listening (state 0A) ---
+020012AC:8081
+020012AC:9A43
+0B00007F:9B9B
+020012AC:AFB3
+00000000:7530
+00000000000000000000000000000000:9113
+INSECURE,HIGH,binds 0.0.0.0/:: (all interfaces) by default

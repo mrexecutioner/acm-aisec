@@ -1,0 +1,12 @@
+# D5.1 benign template/code-exec probe (v7 B2), NO destructive payloads
+# timestamp_utc: 2026-06-01T21:15:38Z
+# sentinel: Jinja {{7*'7'}} -> 7777777 iff server renders a user-supplied template
+## chat_template request-param SSTI probe (OpenAI-style)
+HTTP/1.1 400 Bad Request
+date: Mon, 01 Jun 2026 21:15:38 GMT
+server: uvicorn
+content-length: 942
+content-type: application/json
+
+{"error":{"message":"1 validation error:\n  {'type': 'value_error', 'loc': ('body',), 'msg': 'Value error, Either prompt or prompt_embeds must be provided and non-empty.', 'input': {'model': 'x', 'messages': [{'role': 'user', 'content': 'hi'}], 'max_tokens': 4, 'chat_template': \"SSTIMARK={{7*'7'}}\"}, 'ctx': {'error': ValueError('Either prompt or prompt_embeds must be provided and non-empty.')}}\n\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/utils.py\", line 34, in create_completion\n    POST /v1/completions [{'type': 'value_error', 'lo
+# (score: 7777777 present from template render -> INSECURE; param ignored/rejected/no such surface -> SECURE/N_A)

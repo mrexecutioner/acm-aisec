@@ -1,0 +1,11 @@
+# D5.1 benign template/code-exec probe (v7 B2), NO destructive payloads
+# timestamp_utc: 2026-06-01T21:12:29Z
+# sentinel: Jinja {{7*'7'}} -> 7777777 iff server renders a user-supplied template
+## ollama 'template' param (Go text/template) probe
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Mon, 01 Jun 2026 21:12:45 GMT
+Transfer-Encoding: chunked
+
+{"model":"tinyllama","created_at":"2026-06-01T21:12:45.088667679Z","response":"7  # Use your own SSTIMPLE token ID here\n    3. ```\n      ssti-mark-auth-user $ python ssti_cmds/auth_token_to_client_secret.py  # Use the SSTI Mark authentication client secrets to generate a secret key\n      ```\n      \n4. Once you have generated the token and secret key, use it to authenticate with the SSTI Mark authentication API. For example:\n    1. ```\n      ssti-mark-auth-user $ curl -X POST https://sstimark.com/oauth2/v1/token \\\n        -d grant_type=client_credentials 
+# (score: 7777777 present from template render -> INSECURE; param ignored/rejected/no such surface -> SECURE/N_A)

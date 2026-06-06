@@ -1,0 +1,9 @@
+# D3.2 - unauth pull/load probe
+# url: http://127.0.0.1:5000/v1/internal/model/load  payload: {"model_name":"none"}
+HTTP/1.1 500 Internal Server Error
+date: Mon, 01 Jun 2026 20:55:11 GMT
+server: uvicorn
+content-length: 38
+content-type: application/json
+
+{"detail":"Failed to load the model."}

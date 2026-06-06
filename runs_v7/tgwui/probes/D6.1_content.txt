@@ -1,0 +1,6 @@
+# D6.1 CONTENT analysis (v7 B1), what was actually fetched (from container logs)
+# timestamp_utc: 2026-06-01T21:16:30Z  prior SNI dest known from v6
+# --- container log lines mentioning outbound hosts/URLs ---
+                         http://0.0.0.0:5000/v1                                 
+Running on local URL:  http://0.0.0.0:7860
+# --- end ---

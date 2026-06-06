@@ -1,0 +1,13 @@
+# D5.1 benign template/code-exec probe (v7 B2), NO destructive payloads
+# timestamp_utc: 2026-06-01T21:15:44Z
+# sentinel: Jinja {{7*'7'}} -> 7777777 iff server renders a user-supplied template
+## chat_template request-param SSTI probe (OpenAI-style)
+HTTP/1.1 400 Bad Request
+Connection: close
+Content-Type: application/json; charset=utf-8
+Server: llama.cpp
+Content-Length: 122
+Access-Control-Allow-Origin: 
+
+{"error":{"code":400,"message":"[json.exception.out_of_range.403] key 'prompt' not found","type":"invalid_request_error"}}
+# (score: 7777777 present from template render -> INSECURE; param ignored/rejected/no such surface -> SECURE/N_A)

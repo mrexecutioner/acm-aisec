@@ -1,0 +1,8 @@
+# D1.1 - in-container listening sockets (default bind addr)
+# timestamp_utc: 2026-06-01T21:03:31Z  service port: 8080
+# --- ss -tlnp (if available) ---
+NO_SS_NETSTAT
+# --- /proc/net/tcp + tcp6 listening (state 0A) ---
+0B00007F:B187
+00000000:0050
+UNK,LOW,could not determine bind from ss//proc/net/tcp (see transcript)

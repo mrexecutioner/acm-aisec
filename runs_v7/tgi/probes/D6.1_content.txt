@@ -1,0 +1,13 @@
+# D6.1 CONTENT analysis (v7 B1), what was actually fetched (from container logs)
+# timestamp_utc: 2026-06-01T21:23:41Z  prior SNI dest known from v6
+# --- container log lines mentioning outbound hosts/URLs ---
+    huggingface_hub_cache: Some(
+    usage_stats: On,
+2026-06-01T21:20:55.621821Z  INFO hf_hub: Token file not found "/root/.cache/huggingface/token"    
+2026-06-01T21:20:57.239621Z  INFO download: text_generation_launcher: Starting check and download process for gpt2
+2026-06-01T21:21:02.944196Z  INFO text_generation_launcher: Download file: model.safetensors
+2026-06-01T21:23:24.012568Z  INFO text_generation_launcher: Downloaded /data/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/model.safetensors in 0:02:21.
+2026-06-01T21:23:24.012605Z  INFO text_generation_launcher: Download: [1/1] -- ETA: 0
+2026-06-01T21:23:24.930280Z  INFO download: text_generation_launcher: Successfully downloaded weights for gpt2
+2026-06-01T21:23:35.079645Z  INFO hf_hub: /usr/local/cargo/registry/src/index.crates.io-6f17d22bba15001f/hf-hub-0.3.2/src/lib.rs:55: Token file not found "/root/.cache/huggingface/token"    
+# --- end ---

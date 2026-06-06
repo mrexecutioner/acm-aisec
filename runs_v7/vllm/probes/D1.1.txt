@@ -1,0 +1,15 @@
+# D1.1 - in-container listening sockets (default bind addr)
+# timestamp_utc: 2026-06-01T20:54:20Z  service port: 8000
+# --- ss -tlnp (if available) ---
+NO_SS_NETSTAT
+# --- /proc/net/tcp + tcp6 listening (state 0A) ---
+020012AC:81A5
+020012AC:869D
+020012AC:8B7F
+020012AC:8C85
+020012AC:A3F7
+020012AC:A94F
+00000000:1F40
+0B00007F:8E3B
+00000000000000000000000000000000:E265
+INSECURE,HIGH,binds 0.0.0.0/:: (all interfaces) by default
