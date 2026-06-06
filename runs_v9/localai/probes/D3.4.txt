@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss: https:; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+Content-Type: application/json
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Date: Tue, 02 Jun 2026 14:56:26 GMT
+Content-Length: 130
+
+{"uuid":"3aaa6db1-5e93-11f1-875f-024f8094be31","status":"http://127.0.0.1:8080/models/jobs/3aaa6db1-5e93-11f1-875f-024f8094be31"}

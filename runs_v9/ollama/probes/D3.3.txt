@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Content-Type: application/x-ndjson
+Date: Tue, 02 Jun 2026 14:52:10 GMT
+Transfer-Encoding: chunked
+
+{"status":"retrieving manifest"}
+{"status":"couldn't retrieve manifest"}
+{"error":"open /root/.ollama/models/manifests/registry.ollama.ai/library/nonexistent-test-model/latest: no such file or directory"}

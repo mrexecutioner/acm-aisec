@@ -1,0 +1,30 @@
+# tgwui route inventory  2026-06-02T14:56:37Z  base=http://127.0.0.1:5000
+## GET /openapi.json (paths):
+  / -> OPTIONS
+  /v1/audio/transcriptions -> POST
+  /v1/billing/usage -> GET
+  /v1/chat/completions -> POST
+  /v1/completions -> POST
+  /v1/embeddings -> POST
+  /v1/images/generations -> POST
+  /v1/internal/chat-prompt -> POST
+  /v1/internal/decode -> POST
+  /v1/internal/encode -> POST
+  /v1/internal/health -> GET
+  /v1/internal/logits -> POST
+  /v1/internal/lora/list -> GET
+  /v1/internal/lora/load -> POST
+  /v1/internal/lora/unload -> POST
+  /v1/internal/model/info -> GET
+  /v1/internal/model/list -> GET
+  /v1/internal/model/load -> POST
+  /v1/internal/model/unload -> POST
+  /v1/internal/stop-generation -> POST
+  /v1/internal/token-count -> POST
+  /v1/messages -> POST
+  /v1/models -> GET
+  /v1/models/{model} -> GET
+  /v1/moderations -> POST
+## grep for push/export/delete/unload routes:
+  "/v1/internal/lora/unload"
+  "/v1/internal/model/unload"

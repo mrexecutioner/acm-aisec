@@ -1,0 +1,19 @@
+# D3.4 llamacpp: GET /slots (enabled?) then POST /slots/0?action=erase (benign KV-cache mutate)
+## GET /slots:
+HTTP/1.1 200 OK
+Keep-Alive: timeout=5, max=100
+Content-Type: application/json; charset=utf-8
+Server: llama.cpp
+Content-Length: 257
+Access-Control-Allow-Origin: 
+
+[{"id":0,"n_ctx":2048,"speculative":false,"is_processing":false},{"id":1,"n_ctx":2048,"speculative":false,"is_processing":false},{"
+## POST /slots/0?action=erase:
+HTTP/1.1 501 Not Implemented
+Connection: close
+Content-Type: application/json; charset=utf-8
+Server: llama.cpp
+Content-Length: 139
+Access-Control-Allow-Origin: 
+
+{"error":{"code":501,"message":"This server does not support slots action. Start it with `--slot-save-path`","type":"not_supported_error"}}

@@ -1,0 +1,4 @@
+# tgi route inventory  2026-06-02T15:05:27Z  base=http://127.0.0.1:8080
+## GET /openapi.json (paths):
+  (no openapi.json: Expecting value: line 1 column 1 (char 0) )
+## grep for push/export/delete/unload routes:

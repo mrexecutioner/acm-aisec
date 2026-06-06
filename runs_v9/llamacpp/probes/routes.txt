@@ -1,0 +1,3 @@
+# llamacpp route inventory  2026-06-02T14:55:36Z  base=http://127.0.0.1:8080
+## GET /openapi.json (paths):
+## grep for push/export/delete/unload routes:

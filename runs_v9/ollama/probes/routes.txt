@@ -1,0 +1,4 @@
+# ollama route inventory  2026-06-02T14:52:10Z  base=http://127.0.0.1:11434
+## GET /openapi.json (paths):
+  (no openapi.json: Extra data: line 1 column 5 (char 4) )
+## grep for push/export/delete/unload routes:

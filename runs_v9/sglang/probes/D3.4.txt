@@ -1,0 +1,18 @@
+# D3.4 sglang unauth benign mutate: POST /flush_cache  +  DELETE /hicache/storage-backend
+## POST /flush_cache:
+HTTP/1.1 200 OK
+date: Tue, 02 Jun 2026 19:33:22 GMT
+server: uvicorn
+content-length: 142
+
+Cache flushed.
+Please check backend logs for more details. (When there are running or waiting requests, the operation will not be performed.)
+
+## DELETE /hicache/storage-backend:
+HTTP/1.1 400 Bad Request
+date: Tue, 02 Jun 2026 19:33:22 GMT
+server: uvicorn
+content-length: 146
+content-type: application/json
+
+{"error":"This endpoint requires admin API key, but this server was started without one (admin-api-key). Restart with --admin-api-key to enable."}
